@@ -1,0 +1,202 @@
+package communication;
+
+option java_package = "com.errapartengineering.plcengine";
+option java_outer_classname = "PlcCommunication";
+option optimize_for = LITE_RUNTIME;
+option cc_generic_services = false;
+option java_generic_services = false;
+
+
+/** Id-s in the range [TailId ... HeadId), i.e. TailId is inclusive and HeadId is exclusive.
+*/
+message IdRange {
+  optional int32 TailId = 1;
+  optional int32 HeadId = 2;
+}
+
+/** Set the value of the signal. */
+message SignalAndValue {
+  /** Name of the signal to be set. */
+  optional string Name = 1;
+
+  /** Value to be set to. */
+  optional int32 Value = 2;
+
+  /** Id of the user to set the signal on. */
+  optional int32 UserId = 3;
+}
+
+/** Row in the table 'SignalValue' */
+message DatabaseRow {
+  optional int32 RowId = 1;
+  /** Configuration version. */
+  optional int32 Version = 2;
+  /** Timestamp, Java milliseconds. */
+  optional int64 TimeMs = 3;
+  /** Signal values. */
+  optional bytes SignalValues = 4;
+}
+
+/** Row in the table 'User'. */
+message RowUser {
+  /** User Id. */
+  optional int32 Id = 1;
+  /** DateTime.Ticks (.NET framework). */
+  optional int64 CreateDate = 2;
+  /** Name. */
+  optional string Name = 3;
+  /** Type. */
+  optional string Type = 4;
+  /** Is it public? */
+  optional bool IsPublic = 5;
+  /** Credentials (in the JSON form)? No clear-text passwords. */
+  optional string Credentials = 6;
+}
+
+/** Row in the table 'PlcConfiguration'. */
+message RowPlcConfiguration {
+  /** PlcConfiguration Id. */
+  optional int32 Id = 1;
+
+  /** Id of the user. */
+  optional int32 UserId = 2;
+
+  /** Configuration version. */
+  optional int32 UserSessionId = 3;
+
+  /** DateTime.Ticks (.NET framework). */
+  optional int64 CreateDate = 4;
+
+  /** Configuration version. */
+  optional int32 Version = 5;
+
+  /** Configuration file. */
+  optional bytes ConfigurationFile = 6;
+
+  /** Android Preferences. */
+  optional bytes Preferences = 7;
+} // RowPlcConfiguration
+
+message Configuration {
+  /** Id of the device, or, name of the user. */
+  optional string DeviceId = 1;
+
+  /** Configuration version. */
+  optional int32 Version = 2;
+
+  /** Configuration file. */
+  optional bytes ConfigurationFile = 3;
+
+  /** Credentials: password of the user. */
+  optional string Password = 4;
+
+  /** Android Preferences, if applicable. */
+  optional bytes Preferences = 5;
+}
+
+message Response {
+  optional bool OK = 1;
+  optional string Message = 2;
+}
+
+/** Command from the PLC, if any. */
+enum COMMAND {
+  /** No operation. */
+  NOP = 0;
+  /** Drop the connection. */
+  DROP_CONNECTION = 1;
+  /** Reload configuration. */
+  RELOAD_CONFIGURATION = 2;
+}
+
+/** Query the range of the DB. */
+message DbRangeQuery {
+  /** First time, .NET Ticks. */
+  optional int64 FirstTimeTicks = 1;
+  /** Last time, .NET Ticks. When missing, the query is open-ended. */
+  optional int64 LastTimeTicks = 2;
+}
+
+/*
+message ResponseToDbRangeQuery {
+  /// First row Id, inclusive.
+  optional int32 FirstId = 1;
+  /// Last row Id, inclusive.
+  optional int32 LastId = 2;
+}
+*/
+
+/** Message to the PLC. These are only queries. */
+// TODO: Perhaps better name is 'MessageToSlave'.
+message MessageToPlc {
+  /** Request Id; or unique negative OOB ID */
+  optional int64 Id = 1;
+
+  /** List of signals to be set. */
+  repeated SignalAndValue SetSignals = 2;
+
+  /** Range of database ID-s to query. */
+  optional IdRange QueryDatabaseRows = 3;
+
+  /** List of PLC-s to monitor. */
+  repeated int32 MonitorUsers = 4;
+
+  /** Admin: Forward the rest of the message to the given PLC, if any. */
+  optional int32 ForwardToPlcId = 5;
+
+  /** Admin: Source User Id, if any. */
+  optional int32 SourceUserId = 6;
+
+  /** Admin: Query latest configuration row for the given user. */
+  optional int32 QueryLatestRowPlcConfiguration = 7;
+
+  /** Admin: New configuration to the PLC. */
+  optional RowPlcConfiguration NewRowPlcConfiguration = 8;
+
+  /** Command, if any. */
+  optional COMMAND Command = 9 [default = NOP];
+
+  /** Target PLC Id (for example, for the QueryDbRange command. */
+  optional int32 TargetPlcId = 10;
+
+  /** Query the range of DB id-s, if any. */
+  optional DbRangeQuery QueryDbRange = 11;
+}
+
+/** Message from the PLC. These can be OOB messages or responses to the queries. */
+// TODO: Perhaps better name is 'MessageFromSlave'.
+message MessageFromPlc {
+  /** Equals to the corresponding request Id, or unique negative OOB ID. */
+  optional sint64 Id = 1;
+
+  /** Response, if any. */
+  optional Response Response = 2;
+
+  /** Out-of-band database rows (signal values). */
+  optional DatabaseRow OOBDatabaseRow = 3;
+
+  /** Out-of-band configuration and/or password. */
+  optional Configuration OOBConfiguration = 4;
+
+  /** Out-of-band PLC database id range. */
+  optional IdRange OOBDatabaseRange = 5;
+
+  /** In response to the query 'QueryRows'. */
+  repeated DatabaseRow ResponseToDatabaseRows = 6;
+
+  /** Command, if any. */
+  optional COMMAND Command = 7 [default = NOP];
+
+  /** List of users/devices to connect to/manage. In the 1st message to the operators. */
+  repeated RowUser OOBRowUsers = 8;
+
+  /** Id of the originating PLC. */
+  optional int32 SourceId = 9;
+
+  /** Admin: In response to QueryLatestRowPlcConfiguration. */
+  optional RowPlcConfiguration ResponseToQueryLatestRowPlcConfiguration = 10;
+
+  /** Response to the DbRangeQuery. */
+  optional IdRange ResponseToDbRangeQuery = 11;
+}
+

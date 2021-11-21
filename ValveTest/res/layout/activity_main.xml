@@ -1,0 +1,168 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+
+   	    <!-- TOTAL START TIME -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Started:" />
+	        <TextView
+	            android:id="@+id/textviewTotalStartTime"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>	    
+	    	    
+	    <!-- TEST STATUS -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Test status:" />
+	        <TextView
+	            android:id="@+id/textviewTestStatus"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+	    
+	    <!-- LOOP # -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Loop:" />
+	        <TextView
+	            android:id="@+id/textviewLoopNumber"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+	    
+	    <!-- VALVE # -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Valves:" />
+   		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:layout_span="2" >
+		        <TextView
+		            android:id="@+id/textviewM1"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M1" />
+		        <TextView
+		            android:id="@+id/textviewM2"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M2" />
+		        <TextView
+		            android:id="@+id/textviewM3"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M3" />
+		        <TextView
+		            android:id="@+id/textviewM4"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M4" />
+		        <TextView
+		            android:id="@+id/textviewM5"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M5" />
+				<TextView
+		            android:id="@+id/textviewM6"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M6" />
+		        <TextView
+		            android:id="@+id/textviewM7"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M7" />
+		        <TextView
+		            android:id="@+id/textviewM8"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="M8" />
+			</LinearLayout>
+	    </TableRow>
+	    	    	    
+	    <!-- VALVE POSITION -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Valve target position:" />
+	        <TextView
+	            android:id="@+id/textviewValveTargetPosition"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+
+	    <!-- TEST START TIME  -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="This valve start time:" />
+	        <TextView
+	            android:id="@+id/textviewStartTime"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+	    
+	    <!-- SUCCESS COUNT  -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Success count:" />
+	        <TextView
+	            android:id="@+id/textviewSuccessCount"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+	    
+	    <!-- FAILURE COUNT  -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Success count:" />
+	        <TextView
+	            android:id="@+id/textviewFailureCount"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Not initialized" />
+	    </TableRow>
+	    
+	    <!-- STOP BUTTON -->
+	    <Button
+	        android:layout_span="2"
+	        android:layout_width="75dp"
+	        android:layout_height="wrap_content"
+	        android:text="STOP"
+	        android:onClick="onButtonStop"/>
+ 	</TableLayout>
+</RelativeLayout>

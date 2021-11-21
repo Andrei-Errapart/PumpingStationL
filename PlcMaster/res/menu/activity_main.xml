@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_StartPLC"
+          android:title="Start" />
+    <item android:id="@+id/menu_StopPLC"
+          android:title="Stop" />
+    <item android:id="@+id/menu_fqisetup"
+        android:title="Veemõõdikud" />
+    <item android:id="@+id/menu_preferences"
+        android:title="@string/menu_preferences" />
+</menu>

@@ -1,0 +1,15 @@
+[Unit]
+Description=PLC service
+Requires=mdev.service
+After=mdev.service
+Requires=myproxy.service
+After=myproxy.service
+
+[Service]
+Type=simple
+ExecStart=/mnt/mmcblk0p1/data/KPJ-Papli/run-WindowsPlc.sh
+ExecStop=killall java
+
+[Install]
+WantedBy=multi-user.target
+

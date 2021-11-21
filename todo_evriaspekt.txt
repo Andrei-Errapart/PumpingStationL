@@ -1,0 +1,28 @@
+8. ControlPanelisse SMS saaja muutmise võimalus (textbox) siis kui CtrlPanel käivitatud PlcServer2 teenusega samas masinas
+
+TEHTUD:
+1. Modem.fs integreerimine.
+1a. Lisada fail "Modem.fs" projektile "PlcServer2".
+1b. Lisada konfifaili voimalus kirjutada SMS-id faili voi konsoolile, selle asemel, et neid saata. See lihtsustab debugimist.
+    Konfifail: "C:\PlcServerService\PlcServer.ini", see peab praegu ka nii jääma.
+    Konfifailile vastab tüüp "ServerConfiguration", failis "PlcServer2\PlcServer.fs".
+
+2. Telefoninumbrite nimekiri lugeda ka konfifailist.
+
+3. Alarm SMS:
+3a. PLC levist kadumine voi levisse ilmumine.
+3b. VTJ mahutite (Posti VTJ: LIA2.1 ja LIA2.2) nivood allapoole etteantud piiri.
+3c. Nooruse KPJ pumpla häired (P1.ALARM ja P2.ALARM)
+3d. is_connected alarm sms kui 5x järjest pole ühendust
+3e. ComputedSignals alarmid
+
+4. SMS alarmide tingimuste seadistamine serveri ini failist
+4a. Alarmi tingimus kujul: väärtuse alumine piir, väärtuse ülemine piir. Kui väljaspool piire siis SMS
+    See võimaldab nii boolean kui float väärtuste tingimusi ning eeldame et rohkem kui 1 normaalsuse ala pole vaja.
+
+5. Lisatabel plc andmebaasidesse saadetud alarmide kohta, et topelt mittesaatmise olukorda oleks lihtsam jälgida
+5a. Andmebaasiuuenduste tegemise minimalistlik vahend
+
+6. PLC kirje olemasolu serveri tabelis kontrollitakse OriginalId abil, muuta et kontrollitaks Timestampi võrreldes.
+
+7. Modemi timeout probleem initsialiseerimisel

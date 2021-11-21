@@ -1,0 +1,161 @@
+using System.Collections.Generic;
+
+COMPILER SchemeProgram
+
+public List<SchemeStatement> Result;
+public VisualizationControl Context;
+
+public SchemeExpression ConcatExpression(SchemeExpression expr, SchemeExpression.TYPE op, SchemeExpression expr2)
+{
+	var r = new SchemeExpression(Context, op, expr, expr2, -1, null, -1);
+	return r;
+}
+
+public SchemeExpression ConcatUnaryExpression(SchemeExpression.TYPE op, SchemeExpression expr)
+{
+	var r = new SchemeExpression(Context, op, expr, null, -1, null, -1);
+	return r;
+}
+
+CHARACTERS
+  letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit  = "0123456789" .
+  alphanumeric	= letter + digit .
+
+  cr = '\r'.
+  lf  = '\n'.
+  tab = '\t'.
+  anyButQuote = ANY - '"' .
+  id_trail	= alphanumeric + '_' .
+
+TOKENS
+
+  // Have to take into account the double apostrofes.
+  string = '"' ('"' '"' | {anyButQuote}) '"'.
+
+  // negative digits can cause trouble, and, after all, it is relatively easy to optimize away.	  
+  intliteral = digit {digit} .
+  // Identifier, qualified, as it seems.
+  ident = (letter|'_') { id_trail } [ { '.' { id_trail } }  ] .
+
+COMMENTS FROM '#' TO lf
+
+IGNORE tab + cr + lf
+
+PRODUCTIONS
+
+SchemeProgram =		(. SchemeStatement st = null; .) 
+	SchemeStatement1<ref st>		(. Result.Add(st); .)
+	{ SchemeStatement1<ref st>	(. Result.Add(st); .)
+	}
+.
+
+/*----------------------------------------------------------------------------*/
+SchemeStatement1<ref SchemeStatement st>	(. SchemeStatement.TYPE type = SchemeStatement.TYPE.SHOW;
+											SchemeExpression expr = null; .)
+= (
+	ShowHideOrBlinkKw<ref type> ident		(. st = new SchemeStatement(Context, type, t.val); .)
+	[ "When" Expr<ref expr> ]				(. st.ConditionOrExpression = expr; .)
+  | "Display" ident						(. st = new SchemeStatement(Context, SchemeStatement.TYPE.DISPLAY, t.val); .)
+	"As" Expr<ref expr>					(. st.ConditionOrExpression = expr; .)
+	) ';'
+.
+
+/*----------------------------------------------------------------------------*/
+ShowHideOrBlinkKw<ref SchemeStatement.TYPE type>
+=   "Show"	(. type = SchemeStatement.TYPE.SHOW; .)
+  | "Hide"	(. type = SchemeStatement.TYPE.HIDE; .)
+  | "Blink"	(. type = SchemeStatement.TYPE.BLINK; .)
+.
+
+/*----------------------------------------------------------------------------*/
+Number<ref SchemeExpression num>
+= intliteral						(. num = new SchemeExpression(Context, SchemeExpression.TYPE.LITERAL_INT, null, null, -1, null,  Convert.ToInt32(t.val)); .)
+.
+
+/*----------------------------------------------------------------------------*/
+TrueOrFalse<ref SchemeExpression b>
+=
+  "True"							(. b = new SchemeExpression(Context, SchemeExpression.TYPE.LITERAL_INT, null, null, -1, null,  1); .)
+| "False"							(. b = new SchemeExpression(Context, SchemeExpression.TYPE.LITERAL_INT, null, null, -1, null,  0); .)
+.
+
+/*----------------------------------------------------------------------------*/
+SignalOrIsConnected<ref SchemeExpression sig>	(. SchemeExpression.TYPE type = SchemeExpression.TYPE.UNARY_OP_SIGNAL; .)
+= ( SignalOp<ref type>
+	( ident					(. sig = new SchemeExpression(Context, type, null, null, -1, t.val,  -1); .)
+	| intliteral			(. sig = new SchemeExpression(Context, type, null, null, Convert.ToInt32(t.val), null,  -1); .)
+	) )
+  | ident					(. sig = new SchemeExpression(Context, type, null, null, -1, t.val,  -1); .)
+  | ("NotConnected" 
+	  (  ident				(. sig = ConcatUnaryExpression(SchemeExpression.TYPE.UNARY_OP_NOT, new SchemeExpression(Context, SchemeExpression.TYPE.UNARY_OP_IS_CONNECTED, null, null, -1, t.val,  -1)); .)
+	  | intliteral			(. sig = ConcatUnaryExpression(SchemeExpression.TYPE.UNARY_OP_NOT, new SchemeExpression(Context, SchemeExpression.TYPE.UNARY_OP_IS_CONNECTED, null, null, Convert.ToInt32(t.val), null,  -1)); .)
+	  ) )
+.
+
+/*----------------------------------------------------------------------------*/
+SignalOp<ref SchemeExpression.TYPE type>
+= "Signal"					(. type = SchemeExpression.TYPE.UNARY_OP_SIGNAL; .)
+	| "IsConnected"			(. type = SchemeExpression.TYPE.UNARY_OP_IS_CONNECTED; .)
+.
+
+/*----------------------------------------------------------------------------*/
+Expr<ref SchemeExpression exp>			(. SchemeExpression exp2 = null;
+										SchemeExpression.TYPE op = SchemeExpression.TYPE.LITERAL_INT; .)
+	= AndExp<ref exp>
+	{ OrOp<ref op> AndExp<ref exp2>			(. exp = ConcatExpression(exp, op, exp2); .)
+	} .
+
+/*----------------------------------------------------------------------------*/
+AndExp<ref SchemeExpression exp>	(. SchemeExpression exp2 = null;
+										SchemeExpression.TYPE op = SchemeExpression.TYPE.LITERAL_INT; .)
+	= NotExp<ref exp>
+	{ AndOp<ref op> NotExp<ref exp2>		(. exp = ConcatExpression(exp, op, exp2); .)
+	}.
+
+/*----------------------------------------------------------------------------*/
+NotExp<ref SchemeExpression exp>		(. SchemeExpression exp2 = null; .)
+	= 
+	  RelExp<ref exp>
+	| "Not" RelExp<ref exp2>		(. exp = ConcatUnaryExpression(SchemeExpression.TYPE.UNARY_OP_NOT, exp2); .)
+	.
+
+/*----------------------------------------------------------------------------*/
+RelExp<ref SchemeExpression exp>	(. exp = null;
+				   SchemeExpression exp2 = null;
+				   SchemeExpression.TYPE op = SchemeExpression.TYPE.LITERAL_INT; .)
+= Value<ref exp>
+	{ RelOp<ref op> Value<ref exp2>		(. exp = ConcatExpression(exp, op, exp2); .)
+	}.
+
+/*----------------------------------------------------------------------------*/
+Value<ref SchemeExpression exp>
+	=
+	  TrueOrFalse<ref exp>
+	| Number<ref exp>
+	| SignalOrIsConnected<ref exp>
+	| "(" Expr<ref exp> ")"
+.
+
+/*----------------------------------------------------------------------------*/
+AndOp<ref SchemeExpression.TYPE op> =
+	  "And"		(. op = SchemeExpression.TYPE.BINARY_OP_AND; .)
+	.
+
+/*----------------------------------------------------------------------------*/
+OrOp<ref SchemeExpression.TYPE op> =
+	  "Or"		(. op = SchemeExpression.TYPE.BINARY_OP_OR; .)
+	| "Xor"		(. op = SchemeExpression.TYPE.BINARY_OP_XOR; .)
+	.
+
+
+/*----------------------------------------------------------------------------*/
+RelOp<ref SchemeExpression.TYPE op>	(. op = SchemeExpression.TYPE.BINARY_OP_LT; .)
+=
+	  "<"		(. op = SchemeExpression.TYPE.BINARY_OP_LT; .)
+	| "<="		(. op = SchemeExpression.TYPE.BINARY_OP_LE; .)
+	| ">"		(. op = SchemeExpression.TYPE.BINARY_OP_GT; .)
+	| ">="		(. op = SchemeExpression.TYPE.BINARY_OP_GE; .)
+	.
+
+END SchemeProgram .

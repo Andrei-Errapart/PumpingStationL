@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="pref_modbus_server"
+        android:title="@string/pref_modbus_proxy_title"
+        android:summary="@string/pref_modbus_proxy_summary"
+        android:defaultValue="127.0.0.1:1502" />
+    <EditTextPreference
+        android:key="pref_control_server"
+        android:title="@string/pref_control_server_title"
+        android:summary="@string/pref_control_server_summary"
+        android:defaultValue="192.168.5.109:1503" />
+    <EditTextPreference
+        android:key="pref_well_level_sensor_LIA1"
+        android:title="Puurkaevuandur"
+        android:summary="Konfiguratsioon kujul vool_null;vool_max;tase_min;tase_max"
+        android:defaultValue="4;20;0;50" />
+    <EditTextPreference
+        android:key="pref_level_sensor"
+        android:title="Nivooandurid MV1 ja MV2"
+        android:summary="Konfiguratsioon kujul vool_null;vool_max;tase_min;tase_max"
+        android:defaultValue="0;20;0;4" />
+    <EditTextPreference
+        android:key="pref_reservoir_level_min"
+        android:title="Mahutite MV1 ja MV2 alumine nivoo"
+        android:summary="Alumine nivoo, meetrites."
+        android:defaultValue="1" />
+    <EditTextPreference
+        android:key="pref_reservoir_level_max"
+        android:title="Mahutite MV1 ja MV2 ülemine nivoo"
+        android:summary="Ülemine nivoo, meetrites"
+        android:defaultValue="2" />
+    <EditTextPreference
+        android:key="pref_pressure_sensor_PIA1"
+        android:title="Siseneva vee rõhuandur PIA1"
+        android:summary="Konfiguratsioon kujul vool_null;vool_max;rõhk_min;rõhk_max"
+        android:defaultValue="4;20;0;10" />
+    <EditTextPreference
+        android:key="pref_pressure_sensor_PIA2"
+        android:title="Väljuva vee rõhuandur PIA2"
+        android:summary="Konfiguratsioon kujul vool_null;vool_max;rõhk_min;rõhk_max"
+        android:defaultValue="4;20;0;10" />
+    <EditTextPreference
+        android:key="pref_room_temperature_sensor"
+        android:title="Ruumi termoandur"
+        android:summary="Konfiguratsioon kujul vool_null;vool_max;temp_min;temp_max"
+        android:defaultValue="4;20;-20;60" /> 
+	<EditTextPreference
+        android:key="pref_filter_washing_length"
+        android:title="Veefiltri pesemise kestvus"
+        android:summary="Veefiltri pesemise kestvus, minutites."
+        android:defaultValue="8" /> 
+	<EditTextPreference
+        android:key="pref_filter_settling_length"
+        android:title="Veefiltri settimise kestvus"
+        android:summary="Veefiltri settimise kestvus, minutites."
+        android:defaultValue="4" />
+	<EditTextPreference
+        android:key="pref_filter_interval_usage"
+        android:title="Veefiltri pesemise intervall kasutuse järgi"
+        android:summary="Veefiltri pesemise intervall kasutuse järgi, kuupmeetrites."
+        android:defaultValue="500" />
+	<EditTextPreference
+        android:key="pref_filter_interval_time"
+        android:title="Veefiltri pesemise intervall aja järgi"
+        android:summary="Veefiltri pesemise intervall aja järgi, tundides."
+        android:defaultValue="72" />
+	<EditTextPreference
+        android:key="pref_filter_washing_time"
+        android:title="Veefiltri pesemise tund"
+        android:summary="Veefiltri pesemise tund."
+        android:defaultValue="3" />
+</PreferenceScreen>

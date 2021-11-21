@@ -1,0 +1,25 @@
+N+1. Modemiga võrku ühendamine. -- kräpp levi.
+
+primary   DNS address 212.247.156.66
+secondary DNS address 212.247.156.70
+
+---
+PlcServer: read and recreate databases if necessary.
+PlcManager: Use the databases instead of server connection.
+---
+
+2. Kulumõõdikute lugemispiirkonna laiendus 32-bit.
+3. Pesuprogrammi signaal FJP.ERROR (viga, kui klapid ei avanenud või pesupump ei sulgunud või pneumorõhku ei olnud).
+4. Klapp M2 ei sulgu korralikult!!!! See avaldus pesemise käigus.
+6. 
+
+---- TEHTUD: analoogandurite konfi muutus.
+1. Analoogandurite lugemid korda.
+2. Määrata veetase II astme pumpade korralikuks tööks ja alumiseks piiriks.
+3. Takistid 2.2kOhm konfigureeritava IO ja GND vahele (6x3 = 20tk)
+4. ADC väärtuste keskmistamine üle 32 lugemi vms.
+5. mbproxy-ga proovimine.
+6. KPJ-all: limit to EDGE.
+7. KPJ-all: GSM reconnect script.
+8. Sünkroniseerimisalgoritm peaks alustama lõpust, mitte algusest.
+9. Vanade (>=3 kuud) andmete automaatne kustutamine serveri enda poolt ja nende mitte aktsepteerimine.

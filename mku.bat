@@ -1,0 +1,2 @@
+msiexec /x LoksaControlPanel.msi
+

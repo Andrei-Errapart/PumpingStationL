@@ -1,0 +1,319 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+        
+    <!-- Layout... -->
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+
+	    <!-- PLC STATUS (TODO: large font) -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="PLC olek:" />
+			<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:layout_span="2" >
+		        <TextView
+		            android:id="@+id/textviewPlcStatus"
+		            android:layout_width="250dp"
+		            android:layout_height="wrap_content"
+		            android:text="Teadmata" />
+		        <TextView
+		            android:id="@+id/textviewCpuUsage"
+		            android:layout_width="250dp"
+		            android:layout_height="wrap_content"
+		            android:text="Teadmata" />
+			</LinearLayout>
+	    </TableRow>
+
+	    <!-- PLC STATUS (TODO: large font) -->
+	    <TableRow >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Side keskusega:" />
+	        <TextView
+	            android:id="@+id/textviewCommunication"
+	            android:layout_width="500dp"
+	            android:layout_height="wrap_content"
+	            android:text="Teadmata" />
+	    </TableRow>
+
+	    	    <!-- Well level sensor  -->
+	    <TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Puurkaevu veetase: "/>
+		    <TextView
+		        android:id="@+id/textViewLIA1"
+	            android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+
+    	<!-- PIA1 pressure sensor  -->
+    	<TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Rõhk sisendis: " />
+		    <TextView
+		        android:id="@+id/textViewPIA1"
+	            android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+    	</TableRow>
+
+    	<!-- PIA2 pressure sensor  -->
+    	<TableRow>
+    	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Rõhk väljundis: " />
+		    <TextView
+		        android:id="@+id/textViewPIA2"
+	            android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+
+    	<!-- MV1 level -->
+    	<TableRow>
+    	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="MV1 veetase: " />
+		    <TextView
+		        android:id="@+id/textViewMV1Level"
+	            android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+    	<!-- MV2 level -->
+    	<TableRow>
+    	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="MV2 veetase: " />
+		    <TextView
+		        android:id="@+id/textViewMV2Level"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+	   	<!-- P01 mode status -->
+    	<TableRow>
+    	   	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Puurkaevupump: " />
+		    <TextView
+		        android:id="@+id/textViewP01Mode"
+	            android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+    	<!-- II astme pumbapatarei: P1 -->
+    	<TableRow>
+ 	    	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="II aste P1: " />
+		    <TextView
+		        android:id="@+id/textViewPP1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+    	<!-- II astme pumbapatarei: P2 -->
+   		<TableRow>
+ 	    	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="II aste P2: " />
+		    <TextView
+		        android:id="@+id/textViewPP2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+    	<!-- II astme pumbapatarei: P3 -->
+    	<TableRow>
+ 	    	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="II aste P3: " />
+		    <TextView
+		        android:id="@+id/textViewPP3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+    	<!-- II astme pumbapatarei: P4 -->
+        <TableRow>
+ 	    	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="II aste P4: " />
+		    <TextView
+		        android:id="@+id/textViewPP4"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+	    <!-- Power Analyzer: Phase 1 -->
+	    <TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Võrguanalüsaator L1:" />
+		    <TextView
+		        android:id="@+id/textViewPowerAnalyzerP1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+
+	    <!-- Power Analyzer: Phase 2 -->
+	    <TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Võrguanalüsaator L2:" />
+		    <TextView
+		        android:id="@+id/textViewPowerAnalyzerP2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+	    <!-- Power Analyzer: Phase 3 -->
+	    <TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Võrguanalüsaator L3:" />
+		    <TextView
+		        android:id="@+id/textViewPowerAnalyzerP3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    
+	    <!-- Water Filter: Phase: -->
+	    <!-- Water Filter: Well water usage -->
+	    <TableRow>
+   	   	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Puurkaevuvee kulu: " />
+		    <TextView
+		        android:id="@+id/textViewWellWaterUsage"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata"/>
+	    </TableRow>
+	    
+	    <!-- Water Filter: Wash water usage -->
+	    <TableRow>
+   	   	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Pesuvee kulu: " />
+		    <TextView
+		        android:id="@+id/textViewWashWaterUsage"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata"/>
+	    </TableRow>
+	    
+	    <!-- Water Filter: Water output -->
+	    <TableRow>
+   	   	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Väljastatud vee kogus: " />
+		    <TextView
+		        android:id="@+id/textViewWaterOutput"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata"/>
+	    </TableRow>
+	    
+	    	<!-- Set 1: Signal name  -->
+    	<TableRow>
+   	   	    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Signaal: " />
+		    <TextView
+		        android:id="@+id/textViewIO1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata"/>
+    	</TableRow>
+	    <!-- Set 1: Description -->
+	    <TableRow>
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Kirjeldus: " />
+		    <TextView
+		        android:id="@+id/textViewIO2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Teadmata" />
+	    </TableRow>
+	    <!--  Set 1: Buttons -->
+   	    <TableRow>
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:layout_span="2" >
+			    <Button
+			        android:layout_width="75dp"
+			        android:layout_height="wrap_content"
+			        android:text="Prev"
+			        android:onClick="onButton_Prev1"/>
+			    <Button
+			        android:layout_width="75dp"
+			        android:layout_height="wrap_content"
+			        android:text="Next"
+			        android:onClick="onButton_Next1" />
+			    <Button
+			        android:layout_width="75dp"
+			        android:layout_height="wrap_content"
+			        android:text="ON"
+			        android:onClick="onButton_On1"/>
+			    <Button
+			        android:layout_width="75dp"
+			        android:layout_height="wrap_content"
+			        android:text="OFF"
+			        android:onClick="onButton_Off1"/>
+			    <Button
+			        android:layout_width="75dp"
+			        android:layout_height="wrap_content"
+			        android:text="Filtripesu"
+			        android:onClick="onButton_Wash"/>
+			    <TextView
+			        android:id="@+id/textViewWash"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="Teadmata" />
+   			</LinearLayout>
+	    </TableRow>
+   	</TableLayout>
+</LinearLayout>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR">
+            <Component Id="cmp73B7EECF39A7BD6BBAAE14B31EBD2E5B" Guid="{389350DF-F31C-4ED6-BE9D-0A4B0E26BD75}">
+                <File Id="filC7DCC625A4D0D8630A2E10719F52EC1D" KeyPath="yes" Source="LoksaSetup\ControlPanel.ini" />
+            </Component>
+            <Directory Id="dirCB619E6090AA5490F63173B0F2E09C4F" Name="KPJ-2">
+                <Component Id="cmp228C321A334A23AA0CBBCC9FDDDAA436" Guid="{01BD731D-8DD1-4DED-8C78-959AD095C897}">
+                    <File Id="filC2A19160FB1BDA346D2B8BA222668E64" KeyPath="yes" Source="LoksaSetup\KPJ-2\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp761EC0BC5BD2F543C52D19F0C76AE333" Guid="{E66BA97B-6839-4671-81A4-6041A5036471}">
+                    <File Id="filD4DB29CE401991F0328E154ACA0BA937" KeyPath="yes" Source="LoksaSetup\KPJ-2\Scheme.svg" />
+                </Component>
+                <Component Id="cmpF40F908EDE91B305989657185A78734D" Guid="{3EBE6F1C-524E-4741-A51C-3276AA1396E3}">
+                    <File Id="fil0D70499295BE34AD9C2B4E57768BF994" KeyPath="yes" Source="LoksaSetup\KPJ-2\Scheme.xaml" />
+                </Component>
+                <Component Id="cmpFF0CFCB857CE49A3818B940F88EF9361" Guid="{0DB3658F-93C1-4949-8D64-C1494B4D7789}">
+                    <File Id="fil396B34B38110CEFE0AC96C364A4AD7F4" KeyPath="yes" Source="LoksaSetup\KPJ-2\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dirD4D8E86862E07DAF98BD65CCCA9F48A4" Name="KPJ-4">
+                <Component Id="cmp1DA0E6D3C1B4845C3AA3527D489CF4A4" Guid="{825077A6-0EE5-4D19-AEDD-3332CCC2CB70}">
+                    <File Id="fil267F6E05F6E0582B8ED0E17ADA6D141D" KeyPath="yes" Source="LoksaSetup\KPJ-4\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp70407A9134A51A962C06EF99EF776DA7" Guid="{B41E00D9-FA38-44BF-B235-9BDA49FCCD93}">
+                    <File Id="fil37AF7901B6CCC905F4192E46F84F7813" KeyPath="yes" Source="LoksaSetup\KPJ-4\Scheme.svg" />
+                </Component>
+                <Component Id="cmp21F314411F4FB363EB2251FC786B8124" Guid="{BF08FAFF-C0B0-4251-A797-CDB307D26B24}">
+                    <File Id="filF8F1880C486EB6350509DB5D5CE15560" KeyPath="yes" Source="LoksaSetup\KPJ-4\Scheme.xaml" />
+                </Component>
+                <Component Id="cmpACB339CF5EBEC9A90F239629F91D3BA9" Guid="{2567E381-4030-4CCB-B63F-0F43C457EBA3}">
+                    <File Id="fil930D06DC285867F818D6D9C6F383CBE7" KeyPath="yes" Source="LoksaSetup\KPJ-4\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir02BD6DA39E4DA166859E16E4E842872D" Name="KPJ-5">
+                <Component Id="cmp0EEA9196D9F1DA1D77A04732A9021363" Guid="{ED9ED84B-BFD1-485A-9422-F41619C5610E}">
+                    <File Id="fil6FE94895509E1B51058ECD189D50B283" KeyPath="yes" Source="LoksaSetup\KPJ-5\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp05B013DFAEF639B3C2F77B1FE963F246" Guid="{FCC31263-A359-4149-802D-BCC034D6BE3C}">
+                    <File Id="fil83224142B16AED5DF81EBEF844D74BB6" KeyPath="yes" Source="LoksaSetup\KPJ-5\Scheme.svg" />
+                </Component>
+                <Component Id="cmpD591D586E331274455B1D44DFA632281" Guid="{4734C9D5-0E1B-47B4-A5B5-FD2760A3DB3C}">
+                    <File Id="fil403FF111F62A6D15BF3D46CCA0C6EB1E" KeyPath="yes" Source="LoksaSetup\KPJ-5\Scheme.xaml" />
+                </Component>
+                <Component Id="cmp1DEC454BF00F7D1D7BD8C441B9AD0F7C" Guid="{6B720D10-E121-4360-9874-6FA5DB69835A}">
+                    <File Id="fil2B5513A0307DFCF9301654C589339C51" KeyPath="yes" Source="LoksaSetup\KPJ-5\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir990FF7A830B6C6C578547D4BAC5A316A" Name="KPJ-6">
+                <Component Id="cmpE218049E7EC373E57115189C0F85E073" Guid="{335E76CC-2DB3-4748-87E3-12AA7076C7B6}">
+                    <File Id="fil895FB4C0C8DBE3E0DB6C0DD748245FB1" KeyPath="yes" Source="LoksaSetup\KPJ-6\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp3C9AACE9D3401928FE04BE08EF66233F" Guid="{968BCBBB-5E8E-481E-B19D-D119E55A7AB6}">
+                    <File Id="fil409CC517700A114C00B24A17FC4FBBF7" KeyPath="yes" Source="LoksaSetup\KPJ-6\Scheme.svg" />
+                </Component>
+                <Component Id="cmp3D5FCEE267D72D66A1A47A6500F1AD4F" Guid="{56FA3D66-A5DD-4978-BE6A-FC644B5AFC26}">
+                    <File Id="fil9A57FD26DAAFEB03E3375BB658DB7B4C" KeyPath="yes" Source="LoksaSetup\KPJ-6\Scheme.xaml" />
+                </Component>
+                <Component Id="cmp964249EA416079B833A745E91CBACCF5" Guid="{D9707E78-BC9F-4B29-A1FC-9B1BC57B77D4}">
+                    <File Id="fil03F2925AF5C7E835C364C2718F69CA98" KeyPath="yes" Source="LoksaSetup\KPJ-6\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir18ADF1A16B9D7A01A79889FC2FA5477B" Name="KPJ-Nooruse">
+                <Component Id="cmp85825CE3AA6D18E5416F407BDE014BA7" Guid="{581DFBFE-5C4D-4F3B-B963-64834647ACD0}">
+                    <File Id="filCE637856F0656366FF8F9806E4A0FBCB" KeyPath="yes" Source="LoksaSetup\KPJ-Nooruse\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp8A7E757C909B709F88FCA627CC12DB9B" Guid="{3C05D152-7C63-4755-9599-C4F1DBED1060}">
+                    <File Id="fil7FED6B05C1CB5C676CB24AD45EDD943D" KeyPath="yes" Source="LoksaSetup\KPJ-Nooruse\Scheme.svg" />
+                </Component>
+                <Component Id="cmp4CCD0BFF733281BB74366916695ED60E" Guid="{64825F3F-5B0D-4B75-91FC-E4EFBB4F5B6C}">
+                    <File Id="fil713CA703356AF6C4ECBA186671E8208A" KeyPath="yes" Source="LoksaSetup\KPJ-Nooruse\Scheme.xaml" />
+                </Component>
+                <Component Id="cmp5DC0ACEC28CAFBEC8DF325C3AE342703" Guid="{915605B1-86C9-4870-BB68-ECD41F56CF03}">
+                    <File Id="fil28371BDD1E33CBDC0A3E5095B7F5B71A" KeyPath="yes" Source="LoksaSetup\KPJ-Nooruse\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir63CA7CB0557A20C9EA5AEA231D7AAD2C" Name="KPJ-Papli">
+                <Component Id="cmp455F366C0D7E84A0E4CE9FB25B31F330" Guid="{6666BA62-8DBB-4B50-B2CF-B1CA742C79CF}">
+                    <File Id="fil6677EE25B9E74A2D9A939076E401601C" KeyPath="yes" Source="LoksaSetup\KPJ-Papli\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmpAAB0AFD869577BF179B6555C6395CAAE" Guid="{5EFA61D0-90C0-487F-90EB-2CE393E6D11F}">
+                    <File Id="filA2486388FAE80A30C4EB22D4A63733B1" KeyPath="yes" Source="LoksaSetup\KPJ-Papli\Scheme.svg" />
+                </Component>
+                <Component Id="cmp2A3D122EA3C3B6B5BD8E2C0C67F6BC9D" Guid="{4FB8367B-6827-4881-82B3-B8ECA3E9E2B7}">
+                    <File Id="filF6E268D43518B674C7AF538B9A4A6B41" KeyPath="yes" Source="LoksaSetup\KPJ-Papli\Scheme.xaml" />
+                </Component>
+                <Component Id="cmpB8861D5DD24F57814346A0D8C6C0CFAA" Guid="{3D5DDD56-DBAD-4DBC-AB34-2942AA9A7BB3}">
+                    <File Id="fil35DCE7430CB4B4ED66BA07053A5560E1" KeyPath="yes" Source="LoksaSetup\KPJ-Papli\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir228D4D18CE9F206FE2F8176C0D7958D3" Name="Posti VTJ">
+                <Component Id="cmp8CA7D5AC37CE63F240F82C65AA03E7F6" Guid="{43640295-9680-4C7B-8184-4BD77E267FE1}">
+                    <File Id="fil2213AB17DE9649D7144D0AE6FF979CB3" KeyPath="yes" Source="LoksaSetup\Posti VTJ\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmp3D987F18958D5087DABB1F27397D3855" Guid="{FDCCE980-17A7-4E3E-B359-4C97E2513EAD}">
+                    <File Id="fil748585CB3FA3DFEE90C69B214AC24C11" KeyPath="yes" Source="LoksaSetup\Posti VTJ\Scheme.svg" />
+                </Component>
+                <Component Id="cmp3472D26FC66C346D68504161D00F0DB4" Guid="{310704D0-CB54-465C-AB71-8E6867346C4B}">
+                    <File Id="filFF53832D534667F7679BE1E6A2BCA8E9" KeyPath="yes" Source="LoksaSetup\Posti VTJ\Scheme.xaml" />
+                </Component>
+                <Component Id="cmp15FEA8CD36BE01A2737B4C1BDF23D911" Guid="{B672E011-46F4-43BE-8710-032749174E1F}">
+                    <File Id="fil907AFE4FE61E904042B83166D9106505" KeyPath="yes" Source="LoksaSetup\Posti VTJ\setup.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dirD3FC2C857EDDAD9C661FD36B77741CC6" Name="Ranna VTJ">
+                <Component Id="cmp1A0346ADF42547928A64A512C531176E" Guid="{F212E341-4548-4846-BBE8-5116BD1D7BBD}">
+                    <File Id="fil6204FAE1647BA17C003702B6DABE29AF" KeyPath="yes" Source="LoksaSetup\Ranna VTJ\ControlPanel-Scheme.txt" />
+                </Component>
+                <Component Id="cmpC1F5089D850EB5F32AA1169E37B44FFF" Guid="{D44DED89-7318-41E6-9E8E-A406995B11C9}">
+                    <File Id="fil793951496B49A2013E7157A1B7D4E311" KeyPath="yes" Source="LoksaSetup\Ranna VTJ\Scheme.svg" />
+                </Component>
+                <Component Id="cmpC4C20532D31F1B5E436B744EA40B38CE" Guid="{FB256D4A-4818-40D2-8B8F-939CAFD16E91}">
+                    <File Id="fil5DAB05556909C043685E4A786BB090E3" KeyPath="yes" Source="LoksaSetup\Ranna VTJ\Scheme.xaml" />
+                </Component>
+                <Component Id="cmpB221C5D6408387E9A93C4436EE5E7C8B" Guid="{D44C7B2F-F750-488E-A223-18785094C1BA}">
+                    <File Id="fil605688CED9099681DE5F2D579CC6F27E" KeyPath="yes" Source="LoksaSetup\Ranna VTJ\setup.xml" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="LoksaSetup">
+            <ComponentRef Id="cmp73B7EECF39A7BD6BBAAE14B31EBD2E5B" />
+            <ComponentRef Id="cmp228C321A334A23AA0CBBCC9FDDDAA436" />
+            <ComponentRef Id="cmp761EC0BC5BD2F543C52D19F0C76AE333" />
+            <ComponentRef Id="cmpF40F908EDE91B305989657185A78734D" />
+            <ComponentRef Id="cmpFF0CFCB857CE49A3818B940F88EF9361" />
+            <ComponentRef Id="cmp1DA0E6D3C1B4845C3AA3527D489CF4A4" />
+            <ComponentRef Id="cmp70407A9134A51A962C06EF99EF776DA7" />
+            <ComponentRef Id="cmp21F314411F4FB363EB2251FC786B8124" />
+            <ComponentRef Id="cmpACB339CF5EBEC9A90F239629F91D3BA9" />
+            <ComponentRef Id="cmp0EEA9196D9F1DA1D77A04732A9021363" />
+            <ComponentRef Id="cmp05B013DFAEF639B3C2F77B1FE963F246" />
+            <ComponentRef Id="cmpD591D586E331274455B1D44DFA632281" />
+            <ComponentRef Id="cmp1DEC454BF00F7D1D7BD8C441B9AD0F7C" />
+            <ComponentRef Id="cmpE218049E7EC373E57115189C0F85E073" />
+            <ComponentRef Id="cmp3C9AACE9D3401928FE04BE08EF66233F" />
+            <ComponentRef Id="cmp3D5FCEE267D72D66A1A47A6500F1AD4F" />
+            <ComponentRef Id="cmp964249EA416079B833A745E91CBACCF5" />
+            <ComponentRef Id="cmp85825CE3AA6D18E5416F407BDE014BA7" />
+            <ComponentRef Id="cmp8A7E757C909B709F88FCA627CC12DB9B" />
+            <ComponentRef Id="cmp4CCD0BFF733281BB74366916695ED60E" />
+            <ComponentRef Id="cmp5DC0ACEC28CAFBEC8DF325C3AE342703" />
+            <ComponentRef Id="cmp455F366C0D7E84A0E4CE9FB25B31F330" />
+            <ComponentRef Id="cmpAAB0AFD869577BF179B6555C6395CAAE" />
+            <ComponentRef Id="cmp2A3D122EA3C3B6B5BD8E2C0C67F6BC9D" />
+            <ComponentRef Id="cmpB8861D5DD24F57814346A0D8C6C0CFAA" />
+            <ComponentRef Id="cmp8CA7D5AC37CE63F240F82C65AA03E7F6" />
+            <ComponentRef Id="cmp3D987F18958D5087DABB1F27397D3855" />
+            <ComponentRef Id="cmp3472D26FC66C346D68504161D00F0DB4" />
+            <ComponentRef Id="cmp15FEA8CD36BE01A2737B4C1BDF23D911" />
+            <ComponentRef Id="cmp1A0346ADF42547928A64A512C531176E" />
+            <ComponentRef Id="cmpC1F5089D850EB5F32AA1169E37B44FFF" />
+            <ComponentRef Id="cmpC4C20532D31F1B5E436B744EA40B38CE" />
+            <ComponentRef Id="cmpB221C5D6408387E9A93C4436EE5E7C8B" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

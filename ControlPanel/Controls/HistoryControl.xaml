@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ControlPanel.HistoryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:hb="clr-namespace:HandyBox;assembly=HandyBox"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:utils="clr-namespace:CSUtils;assembly=CSUtils"
+             xmlns:local="clr-namespace:ControlPanel"
+             Name="Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top" >
+        <TextBlock DockPanel.Dock="Top" Foreground="Blue" Text="Ajalugu" />
+        <local:TimespanPanelControl DockPanel.Dock="Top"
+                                    x:Name="timespanpanel"
+                                    OnTimespanChanged="TimespanPanelControl_OnTimespanChanged"
+                                    Timespans="{Binding Path=LocalConfiguration.HistoryTimeSpanPickerTimes, Mode=OneWay}"
+                                    DefaultTimespan="{Binding Path=LocalConfiguration.HistoryTimeSpanPickerDefault}"
+                                    />
+
+        <!-- SAVE BUTTON -->
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" >
+            <Button Content="Salvesta" Click="ButtonSave_Click" />
+            <Button Content="Kopeeri" Click="ButtonCopy_Click" />
+            <TextBlock Text="NB! Faili salvestatakse sündmused ajaliselt kasvavas järjekorras." />
+        </StackPanel>
+
+        <!-- CONTENTS -->
+        <ListView DockPanel.Dock="Top" ItemsSource="{Binding ElementName=Control, Path=EventLines}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Aeg" DisplayMemberBinding="{Binding Path=DisplayTimestamp}" />
+                    <GridViewColumn Header="Seade" DisplayMemberBinding="{Binding Path=Device}" />
+                    <GridViewColumn Header="Signaal" DisplayMemberBinding="{Binding Path=SignalName}" />
+                    <GridViewColumn Header="Kirjeldus" DisplayMemberBinding="{Binding Path=SignalDescription}" />
+                    <GridViewColumn Header="Teade" DisplayMemberBinding="{Binding Path=Message}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </DockPanel>
+</UserControl>

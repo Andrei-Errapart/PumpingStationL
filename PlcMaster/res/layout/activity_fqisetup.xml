@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <!-- TITLE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veemõõdikute algnäidud" />
+    
+    <!-- INITIAL VALUES FOR THE WATER METERS  -->
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+	    
+	    <!-- FQI1 -->
+	    <TableRow>
+	        <CheckBox
+	            android:id="@+id/checkboxFqi1"
+		        android:layout_width="250dp"
+		        android:layout_height="wrap_content"
+	            android:text="Puurkaevuvee mõõdik:"
+	            android:onClick="onCheckBox_Fqi1" />
+	        <EditText
+	            android:id="@+id/editTextFqi1"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+	            android:text="0" />
+		</TableRow>
+
+	    <!-- FQI2 -->
+	    <TableRow>
+	        <CheckBox
+	            android:id="@+id/checkboxFqi2"
+		        android:layout_width="250dp"
+		        android:layout_height="wrap_content"
+	            android:text="Pesuvee mõõdik:"
+	            android:onClick="onCheckBox_Fqi2" />
+	        <EditText
+	            android:id="@+id/editTextFqi2"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+	            android:text="0" />
+		</TableRow>
+
+	    <!-- FQI3 -->
+	    <TableRow>
+	        <CheckBox
+	            android:id="@+id/checkboxFqi3"
+		        android:layout_width="250dp"
+		        android:layout_height="wrap_content"
+	            android:text="Väljundi mõõdik:"
+	            android:onClick="onCheckBox_Fqi3" />
+	        <EditText
+	            android:id="@+id/editTextFqi3"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+	            android:text="0" />
+		</TableRow>
+		
+	    <!--  ACCEPT / CANCEL -->
+	    <TableRow>
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:layout_span="2" >
+			    <Button
+			        android:layout_width="150dp"
+			        android:layout_height="wrap_content"
+			        android:text="Kinnitan"
+			        android:onClick="onButton_Accept"/>
+			    <Button
+			        android:layout_width="150dp"
+			        android:layout_height="wrap_content"
+			        android:text="Tühistan"
+			        android:onClick="onButton_Cancel" />
+			</LinearLayout>
+		</TableRow>
+    </TableLayout>    
+</LinearLayout>

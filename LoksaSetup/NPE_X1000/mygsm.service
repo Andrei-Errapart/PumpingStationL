@@ -1,0 +1,17 @@
+[Unit]
+Description=GSM data connection
+Requires=syslog.target
+After=syslog.target
+Requires=mdev.service
+After=mdev.service
+
+[Service]
+Type=simple
+ExecStart=/mnt/mmcblk0p1/data/NPE_X1000/run-gsmconnect.sh
+ExecStop=killall pppd run-gsmconnect.sh
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

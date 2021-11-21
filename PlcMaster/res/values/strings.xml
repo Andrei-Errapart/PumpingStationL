@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PlcMaster</string>
+    <string name="menu_preferences">Seadistused</string>
+    <string name="plcmaster_name">PlcMaster</string>
+    <string name="alert_ok_button_text">Okei okei</string>
+    <string name="pref_modbus_proxy_title">Modbus proxy</string>
+    <string name="pref_modbus_proxy_summary">Modbus proxy, vorming: "host:port".</string>
+    <string name="pref_control_server_title">Keskserver</string>
+    <string name="pref_control_server_summary">Keskserver, vorming: "host:port".</string>
+</resources>

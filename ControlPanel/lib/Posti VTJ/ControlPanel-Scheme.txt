@@ -1,0 +1,87 @@
+#1. Võrguanalüsaator
+Display EQ1.A.Power As EQ1.A.Power;
+Display EQ1.A.Current As EQ1.A.Current;
+Display EQ1.B.Power As EQ1.B.Power;
+Display EQ1.B.Current As EQ1.B.Current;
+Display EQ1.C.Power As EQ1.C.Power;
+Display EQ1.C.Current As EQ1.C.Current;
+Display EQ1.L1L2 As EQ1.L1L2;
+Display EQ1.L2L3 As EQ1.L2L3;
+Display EQ1.L3L1 As EQ1.L3L1;
+Display EQ1.TotalUsage As EQ1.TotalUsage;
+
+#################################################################
+#2. Rõhulülitid: normaalasend=NORM
+#     Väljundis on võimalik rõhku alarmeerida kahel viisil: alarõhk-PS2=1; ülerõhk-PS3=0
+#     Pneumosüsteemi alarõhk ehk alarm-PS1=1
+Show PS1.Normal When PS.1;
+Blink PS1.Underpressure When Not PS.1;
+# Show PS2.Normal When Not PS.2;
+# Blink PS2.Underpressure When PS.2;
+Show PS3.Normal When Not PS.3;
+Blink PS3.Overpressure When PS.3;
+
+#################################################################
+# P01
+Show P01.Contents When P01.IS_RUNNING;
+
+#################################################################
+# PP1
+Blink P1.Disconnected When NotConnected PP1.START_STOP;
+Show P1.Contents When PP1.FREQUENCY;
+
+# PP2
+Blink P2.Disconnected When NotConnected PP2.START_STOP;
+Show P2.Contents When PP2.FREQUENCY;
+
+# PP3
+Blink P3.Disconnected When NotConnected PP3.START_STOP;
+Show P3.Contents When PP3.FREQUENCY;
+
+# PP4
+Blink P4.Disconnected When NotConnected PP4.START_STOP;
+Show P4.Contents When PP4.FREQUENCY;
+
+# P5 - pesupump
+Show P5.Contents When P5.IS_RUNNING;
+Blink P5.Contents When P5.ERROR;
+
+#################################################################
+#4. Klapid MV1.1 ja MV2.1: klappidega on lugu keerulisem - kui on avatus, siis on roheline voolusuunaga ühtiv kolmnurk aga kui suletud, siis on punased mõlemad kolmnurgad.
+#
+Show MV11.IsOpen When MV11.IS_OPEN;
+Show MV11.IsClosed When MV11.IS_CLOSED;
+Show MV21.IsOpen When MV21.IS_OPEN;
+Show MV21.IsClosed When MV21.IS_CLOSED;
+
+#################################################################
+# Veemõõtja.
+Display FQI1 As FQI1.READING;
+Display FQI2 As FQI2.READING;
+Display FQI3 As FQI3.READING;
+
+#################################################################
+#6. Mahutid - näidata nivood.
+Display MV11.Level As LIA2.1.READING;
+Display MV21.Level As LIA2.2.READING;
+
+#################################################################
+#7. FJP:
+#    FJP alarmi korral värvub punaseks FJP kastike
+#    Pesu indikeerida.
+# Blink FJP.Frame When Not FJP.ERROR;
+Show FJP.IsWashing When FJP.WASHING;
+
+#################################################################
+#8. TIA - not in Posti VTJ
+# Display TIA1 As TIA1.READING;
+
+#################################################################
+#9. Rõhuandurite juurde rõhk.
+Display PIA1 As PIA1.READING;
+Display PIA2 As PIA2.READING;
+
+#################################################################
+#10. Puurkaevu nivoo :)
+Display LIA1 As LIA1.READING;
+

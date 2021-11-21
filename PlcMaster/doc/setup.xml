@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plcmaster>
+	<signals>
+		<!-- U1: inputs -->
+		<device address="1">
+			<signal id="13" type="input" ioindex="0" name="QS1"				description="TJK generaatoritoitel" text0="0" text1="1" />
+			<signal id="14" type="input" ioindex="1" name="TVS1"				description="Ülepingehäire" text0="Korras" text1="Ülepinge" />
+			<signal id="15" type="input" ioindex="2" name="FJP.P01.STOP"		description="Puurkaevupump P.0.1 seisma" text0="Käivita" text1="Seiska" />
+			<signal id="16" type="input" ioindex="3" name="FJP.P5.START"		description="Pesupump P.5 tööle" text0="Seiska" text1="Käivita" />
+			<signal id="17" type="input" ioindex="4" name="P01.IS_RUNNING"	description="Puurkaevupump P.0.1 töötab" text0="Seisab" text1="Töötab" />
+			<signal id="18" type="input" ioindex="5" name="P01.RLE_CONTROL" 	description="Puurkaevupump P.0.1 RLE juhtimisel" text0="Ei" text1="Releejuhtimisel" />
+			<signal id="19" type="input" ioindex="6" name="P01.PLC_CONTROL" 	description="Puurkaevupump P.0.1 PLC juhtimisel" text0="Ei" text1="PLC juhtimisel" />
+			<signal id="20" type="input" ioindex="7" name="P01.AUTO_CONTROL"	description="Puurkaevupump P.0.1 aut. juhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="21" type="input" ioindex="8" name="P01.MANUAL_CONTROL" description="Puurkaevupump P.0.1 käsijuhtimisel" text0="Ei" text1="Käsijuhtimisel" />
+			<signal id="22" type="input" ioindex="9" name="P01.ERROR"		description="Puurkaevupump P.0.1 häires" text0="Korras" text1="Häires" />
+			<signal id="23" type="input" ioindex="10" name="PS.1"			description="Pneumosüsteemis alarõhk" text0="Alarõhk" text1="Korras" />
+			<signal id="24" type="input" ioindex="11" name="PS.3"			description="Väljundis ülerõhk" text0="Ülerõhke" text1="Korras" />
+			<signal id="25" type="input" ioindex="12" name="LSA2.1"			description="Mahuti 1 täis" text0="Korras" text1="Ületäitunud" />
+			<signal id="26" type="input" ioindex="13" name="LSA2.2"			description="Mahuti 2 täis" text0="Korras" text1="Ületäitunud" />
+			<signal id="27" type="input" ioindex="14" name="FJP.ERROR"		description="Veefilter häires" text0="Korras" text1="Häires" />
+			<signal id="28" type="input" ioindex="15" name="U1.DI15"			description="U1.DI15" text0="0" text1="1" />
+		</device>
+		
+		<!-- U2: outputs -->
+		<device address="2">
+			<signal id="29" type="output" ioindex="0" name="U2.DO0"		description="U2.DO12" text0="0" text1="1" />
+			<signal id="30" type="output" ioindex="1" name="U2.DO1"		description="U2.DO13" text0="0" text1="1" />
+			<signal id="31" type="output" ioindex="2" name="U2.DO2"		description="U2.DO14" text0="0" text1="1" />
+			<signal id="32" type="output" ioindex="3" name="P01.START_STOP"	description="Puurkaevupump P.0.1 Start/Stop" text0="Seiska" text1="Käivita" />
+			<signal id="33" type="output" ioindex="4" name="P5.START_STOP"	description="Pesupump P.5 Start/Stop" text0="Seiska" text1="Käivita" />
+			<signal id="34" type="output" ioindex="5" name="DP11.START_STOP" description="Dosaator Start/Stop" text0="Seiska" text1="Käivita" />
+			<signal id="35" type="output" ioindex="6" name="DP11.FQI1"		description="Veekulu dosaatorile mõõtjalt FQI1" text0="0" text1="1" />
+			<signal id="36" type="output" ioindex="7" name="MV11.OPEN"		description="Pöördklapi MV1.1 avamine" text0="." text1="Ava" />
+			<signal id="37" type="output" ioindex="8" name="MV11.CLOSE"		description="Pöördklapi MV1.1 sulgemine" text0="." text1="Sulge" />
+			<signal id="38" type="output" ioindex="9" name="MV21.OPEN"		description="Pöördklapi MV2.1 avamine" text0="." text1="Ava" />
+			<signal id="39" type="output" ioindex="10" name="MV21.CLOSE"		description="Pöördklapi MV2.1 sulgemine" text0="." text1="Sulge" />
+			<signal id="40" type="output" ioindex="11" name="DY1"			description="Solenoidklapi DY1 avamine" text0="0" text1="1" />
+			<signal id="41" type="output" ioindex="12" name="U2.DO12"		description="U2.DO12" text0="0" text1="1" />
+			<signal id="42" type="output" ioindex="13" name="U2.DO13"		description="U2.DO13" text0="0" text1="1" />
+			<signal id="43" type="output" ioindex="14" name="U2.DO14"		description="U2.DO14" text0="0" text1="1" />
+			<signal id="44" type="output" ioindex="15" name="U2.DO15"		description="U2.DO15" text0="0" text1="1" />
+		</device>
+				
+		<!-- U3: 16 digital inputs. -->
+		<device address="3">
+			<signal id="45" type="input" ioindex="0" name="U3.DI0"			description="U3.DI0" text0="0" text1="1" />
+			<signal id="46" type="input" ioindex="1" name="U3.DI1"			description="U3.DI1" text0="0" text1="1" />
+			<signal id="47" type="input" ioindex="2" name="P5.AUTO_CONTROL"	description="Pesupump P.5 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="48" type="input" ioindex="3" name="P5.IS_RUNNING"	description="Pesupump P.5" text0="Seisab" text1="Töötab" />
+			<signal id="49" type="input" ioindex="4" name="P5.ERROR"			description="Pesupump P.5 häires" text0="Korras" text1="Häires" />
+			<signal id="50" type="input" ioindex="5" name="P5.THERMO"		description="Pesupumba P.5 termohäire" text0="Jahe" text1="Ülekuumenenud" />
+			<signal id="51" type="input" ioindex="6" name="DP11.AUTO_CONTROL" description="Dosaator automaatjuhtimisel" text0="0" text1="1" />
+			<signal id="52" type="input" ioindex="7" name="DP11.ERROR"		description="Dosaator häires" text0="Korras" text1="Häires" />
+			<signal id="53" type="input" ioindex="8" name="MV11.ERROR"		description="Pöördklapp MV1.1 häires" text0="Korras" text1="Häires" />
+			<signal id="54" type="input" ioindex="9" name="MV11.AUTO_CONTROL" description="Pöördklapp MV1.1 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="55" type="input" ioindex="10" name="MV11.IS_OPEN"	description="Pöördklapp MV1.1 avatud" text0="Ei" text1="Avatud" />
+			<signal id="56" type="input" ioindex="11" name="MV11.IS_CLOSED"	description="Pöördklapp MV1.1 suletud" text0="Ei" text1="Suletud" />
+			<signal id="57" type="input" ioindex="12" name="MV21.ERROR"		description="Pöördklapp MV2.1 häires" text0="Korras" text1="Häires" />
+			<signal id="58" type="input" ioindex="13" name="MV21.AUTO_CONTROL" description="Pöördklapp MV2.1 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="59" type="input" ioindex="14" name="MV21.IS_OPEN"	description="Pöördklapp MV2.1 avatud" text0="Ei" text1="Avatud" />
+			<signal id="60" type="input" ioindex="15" name="MV21.IS_CLOSED"	description="Pöördklapp MV2.1 suletud" text0="Ei" text1="Suletud" />
+		</device>
+				
+		<!--  U4: 8xDI, 8xDO -->
+		<device address="4">
+			<signal id="61" type="input" ioindex="0" name="VK.FIRE"			description="Tulekahju häire" text0="0" text1="1" />
+			<signal id="62" type="input" ioindex="1" name="VK.INTRUDER"		description="Sissetungi häire" text0="0" text1="1" />
+			<signal id="63" type="input" ioindex="2" name="VK.IS_ALARMED"	description="VTJ valves" text0="0" text1="1" />
+			<signal id="64" type="input" ioindex="3" name="BITS.FQI1" description="Veekulu mõõtja sisendis (bitt)" text0="0" text1="1" />
+			<signal id="65" type="input_register" ioindex="3" name="FQI1"	description="Veekulu mõõtja sisendis" text0="" text1="" />
+			<signal id="66" type="input_register" ioindex="4" name="FQI2"	description="Veekulu mõõtja filtri sisendis" text0="" text1="" />
+			<signal id="67" type="input_register" ioindex="5" name="FQI3"	description="Veekulu mõõtja väljundis" text0="" text1="" />
+			<signal id="68" type="input" ioindex="6" name="U4.DI6"			description="U4.DI6" text0="0" text1="1" />
+			<signal id="69" type="input" ioindex="7" name="U4.DI7"			description="U4.DI7" text0="0" text1="1" />
+			<signal id="70" type="output" ioindex="0" name="FJP.LQI1"		description="Toorveekulu LQI1" text0="0" text1="1" />
+			<signal id="71" type="output" ioindex="1" name="FJP.ENABLE_WASH"	description="Pesu lubatud" text0="Keelatud" text1="Lubatud" />
+			<signal id="72" type="output" ioindex="2" name="FJP.P5_IS_RUNNING" description="Pump P.5 töötab" text0="Seisab" text1="Töötab" />
+			<signal id="73" type="output" ioindex="3" name="FJP.LQI2"			description="Pesuveekulu LQI2" text0="0" text1="1" />
+			<signal id="74" type="output" ioindex="4" name="U4.DO4"			description="U4.DO4" text0="0" text1="1" />
+			<signal id="75" type="output" ioindex="5" name="U4.DO5"			description="U4.DO5" text0="0" text1="1" />
+			<signal id="76" type="output" ioindex="6" name="U4.DO6"			description="U4.DO6" text0="0" text1="1" />
+			<signal id="77" type="output" ioindex="7" name="U4.DO7"			description="U4.DO7" text0="0" text1="1" />
+		</device>
+				
+		<!--  U5: 8xAI -->
+		<device address="5" readingperiod="60">
+			<signal id="78" type="input_register" ioindex="0" name="LIA1"	description="Puurkaevu nivoo" text0="" text1="" />
+			<signal id="79" type="input_register" ioindex="1" name="PIA1"	description="Siseneva vee rõhk" text0="" text1="" />
+			<signal id="80" type="input_register" ioindex="2" name="PIA2"	description="Väljuva vee rõhk" text0="" text1="" />
+			<signal id="81" type="input_register" ioindex="3" name="TIA1"	description="Ruumi temperatuur" text0="" text1="" />
+			<signal id="82" type="input_register" ioindex="4" name="LIA2.1"	description="Mahuti 1 nivoo" text0="" text1="" />
+			<signal id="83" type="input_register" ioindex="5" name="LIA2.2"	description="Mahuti 2 nivoo" text0="" text1="" />
+			<signal id="84" type="input_register" ioindex="6" name="U5.AI6"		description="U5.AI6" text0="" text1="" />
+			<signal id="85" type="input_register" ioindex="7" name="U5.AI7"		description="U5.AI7" text0="" text1="" />
+		</device>
+
+		<!-- PM-2133 power analyzer, to be measured once per minute. -->
+		<device address="6" readingperiod="60">
+		    <!-- Phase A -->
+		    <signal id="86" type="input_register" ioindex="4353" name="V_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="87" type="input_register" ioindex="4354" name="V_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="88" type="input_register" ioindex="4355" name="I_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="89" type="input_register" ioindex="4356" name="I_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="90" type="input_register" ioindex="4357" name="kW_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="91" type="input_register" ioindex="4358" name="kW_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="92" type="input_register" ioindex="4359" name="kvar_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="93" type="input_register" ioindex="4360" name="kvar_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="94" type="input_register" ioindex="4361" name="kVA_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="95" type="input_register" ioindex="4362" name="kVA_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="96" type="input_register" ioindex="4363" name="PF_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="97" type="input_register" ioindex="4364" name="PF_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="98" type="input_register" ioindex="4365" name="kWh_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="99" type="input_register" ioindex="4366" name="kWh_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="100" type="input_register" ioindex="4367" name="kvarh_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="101" type="input_register" ioindex="4368" name="kvarh_a_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="102" type="input_register" ioindex="4369" name="kVAh_a_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="103" type="input_register" ioindex="4370" name="kVAh_a_high" description="V_a(low)" text0="" text1="" />
+		    
+		    <!--  Phase B -->
+		    <signal id="104" type="input_register" ioindex="4371" name="V_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="105" type="input_register" ioindex="4372" name="V_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="106" type="input_register" ioindex="4373" name="I_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="107" type="input_register" ioindex="4374" name="I_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="108" type="input_register" ioindex="4375" name="kW_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="109" type="input_register" ioindex="4376" name="kW_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="110" type="input_register" ioindex="4377" name="kvar_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="111" type="input_register" ioindex="4378" name="kvar_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="112" type="input_register" ioindex="4379" name="kVA_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="113" type="input_register" ioindex="4380" name="kVA_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="114" type="input_register" ioindex="4381" name="PF_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="115" type="input_register" ioindex="4382" name="PF_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="116" type="input_register" ioindex="4383" name="kWh_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="117" type="input_register" ioindex="4384" name="kWh_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="118" type="input_register" ioindex="4385" name="kvarh_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="119" type="input_register" ioindex="4386" name="kvarh_b_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="120" type="input_register" ioindex="4387" name="kVAh_b_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="121" type="input_register" ioindex="4388" name="kVAh_b_high" description="V_a(low)" text0="" text1="" />
+		    
+		    <!--  Phase C -->
+		    <signal id="122" type="input_register" ioindex="4389" name="V_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="123" type="input_register" ioindex="4390" name="V_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="124" type="input_register" ioindex="4391" name="I_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="125" type="input_register" ioindex="4392" name="I_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="126" type="input_register" ioindex="4393" name="kW_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="127" type="input_register" ioindex="4394" name="kW_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="128" type="input_register" ioindex="4395" name="kvar_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="129" type="input_register" ioindex="4396" name="kvar_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="130" type="input_register" ioindex="4397" name="kVA_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="131" type="input_register" ioindex="4398" name="kVA_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="132" type="input_register" ioindex="4399" name="PF_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="133" type="input_register" ioindex="4400" name="PF_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="134" type="input_register" ioindex="4401" name="kWh_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="135" type="input_register" ioindex="4402" name="kWh_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="136" type="input_register" ioindex="4403" name="kvarh_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="137" type="input_register" ioindex="4404" name="kvarh_c_high" description="V_a(low)" text0="" text1="" />
+		    <signal id="138" type="input_register" ioindex="4405" name="kVAh_c_low" description="V_a(low)" text0="" text1="" />
+		    <signal id="139" type="input_register" ioindex="4406" name="kVAh_c_high" description="V_a(low)" text0="" text1="" />
+		</device>
+		
+		<!--  Pumbapatarei: PUMP 1 -->
+		<device address="11" noreadmultiple="true">
+			<signal id="140" type="holding_register" ioindex="49" name="PP1.START_STOP" description="Pumbapatarei 1. pump: Start/Stop" text0="" text1="" />
+			<signal id="141" type="holding_register" ioindex="50" name="PP1.ACTUAL_VALUE" description="Pumbapatarei 1. pump: Tegelik väärtus x 10" text0="" text1="" />
+			<signal id="142" type="input_register" ioindex="51" name="PP1.FREQUENCY" description="Pumbapatarei 1. pump: Sagedus x 10" text0="" text1="" />
+			<signal id="143" type="holding_register" ioindex="71" name="PP1.RUNTIME_HOURS_HIGH" description="Pumbapatarei 1. pump: Tööaeg: tunnid 1" text0="" text1="" />
+			<signal id="144" type="holding_register" ioindex="72" name="PP1.RUNTIME_HOURS_LOW" description="Pumbapatarei 1. pump: Tööaeg: tunnid 2" text0="" text1="" />
+			<signal id="145" type="holding_register" ioindex="73" name="PP1.RUNTIME_MINUTES" description="Pumbapatarei 1. pump: Tööaeg: minutid" text0="" text1="" />
+		</device>
+				
+		<!--  Pumbapatarei: PUMP 2 -->
+		<device address="12" noreadmultiple="true">
+			<signal id="146" type="holding_register" ioindex="49" name="PP2.START_STOP" description="Pumbapatarei 2. pump: Start/Stop" text0="" text1="" />
+			<signal id="147" type="holding_register" ioindex="50" name="PP2.ACTUAL_VALUE" description="Pumbapatarei 2. pump: Tegelik väärtus  x 10" text0="" text1="" />
+			<signal id="148" type="input_register" ioindex="51" name="PP2.FREQUENCY" description="Pumbapatarei 2. pump: Sagedus x 10" text0="" text1="" />
+			<signal id="149" type="holding_register" ioindex="71" name="PP2.RUNTIME_HOURS_HIGH" description="Pumbapatarei 2. pump: Tööaeg: tunnid 1" text0="" text1="" />
+			<signal id="150" type="holding_register" ioindex="72" name="PP2.RUNTIME_HOURS_LOW" description="Pumbapatarei 2. pump: Tööaeg: tunnid 2" text0="" text1="" />
+			<signal id="151" type="holding_register" ioindex="73" name="PP2.RUNTIME_MINUTES" description="Pumbapatarei 2. pump: Tööaeg: minutid" text0="" text1="" />
+		</device>
+				
+		<!--  Pumbapatarei: PUMP 3 -->
+		<device address="13" noreadmultiple="true">
+			<signal id="152" type="holding_register" ioindex="49" name="PP3.START_STOP" description="Pumbapatarei 3. pump: Start/Stop" text0="" text1="" />
+			<signal id="153" type="holding_register" ioindex="50" name="PP3.ACTUAL_VALUE" description="Pumbapatarei 3. pump: Tegelik väärtus x 10" text0="" text1="" />
+			<signal id="154" type="input_register" ioindex="51" name="PP3.FREQUENCY" description="Pumbapatarei 3. pump: Sagedus x 10" text0="" text1="" />
+			<signal id="155" type="holding_register" ioindex="71" name="PP3.RUNTIME_HOURS_HIGH" description="Pumbapatarei 3. pump: Tööaeg: tunnid 1" text0="" text1="" />
+			<signal id="156" type="holding_register" ioindex="72" name="PP3.RUNTIME_HOURS_LOW" description="Pumbapatarei 3. pump: Tööaeg: tunnid 2" text0="" text1="" />
+			<signal id="157" type="holding_register" ioindex="73" name="PP3.RUNTIME_MINUTES" description="Pumbapatarei 3. pump: Tööaeg: minutid" text0="" text1="" />
+		</device>
+				
+		<!--  Pumbapatarei: PUMP 4 -->
+		<device address="14" noreadmultiple="true">
+			<signal id="158" type="holding_register" ioindex="49" name="PP4.START_STOP" description="Pumbapatarei 4. pump: Start/Stop" text0="" text1="" />
+			<signal id="159" type="holding_register" ioindex="50" name="PP4.ACTUAL_VALUE" description="Pumbapatarei 4. pump: Tegelik väärtus x 10" text0="" text1="" />
+			<signal id="160" type="input_register" ioindex="51" name="PP4.FREQUENCY" description="Pumbapatarei 4. pump: Sagedus x 10" text0="" text1="" />
+			<signal id="161" type="holding_register" ioindex="71" name="PP4.RUNTIME_HOURS_HIGH" description="Pumbapatarei 4. pump: Tööaeg: tunnid 1" text0="" text1="" />
+			<signal id="162" type="holding_register" ioindex="72" name="PP4.RUNTIME_HOURS_LOW" description="Pumbapatarei 4. pump: Tööaeg: tunnid 2" text0="" text1="" />
+			<signal id="163" type="holding_register" ioindex="73" name="PP4.RUNTIME_MINUTES" description="Pumbapatarei 4. pump: Tööaeg: minutid" text0="" text1="" />
+		</device>
+	</signals>
+	<schemes>
+   		<scheme type="infopanel">
+			<group name="P01">
+				<usesignal signal="P01.START_STOP" />
+				<usesignal signal="P01.IS_RUNNING" />
+				<usesignal signal="P01.RLE_CONTROL" />
+				<usesignal signal="P01.PLC_CONTROL" />
+				<usesignal signal="P01.AUTO_CONTROL" />
+				<usesignal signal="P01.MANUAL_CONTROL" />
+				<usesignal signal="P01.ERROR" />
+			</group>
+
+			<group name="EQ1">
+				<usesignal signal="EQ1.TotalUsage" />
+				<usesignal signal="EQ1.L1L2" />
+				<usesignal signal="EQ1.L2L3" />
+				<usesignal signal="EQ1.L3L1" />
+				<usesignal signal="EQ1.A.Current" />
+				<usesignal signal="EQ1.B.Current" />
+				<usesignal signal="EQ1.C.Current" />
+				<usesignal signal="EQ1.A.Power" />
+				<usesignal signal="EQ1.B.Power" />
+				<usesignal signal="EQ1.C.Power" />
+				<usesignal signal="EQ1.A.Usage" />
+				<usesignal signal="EQ1.B.Usage" />
+				<usesignal signal="EQ1.C.Usage" />
+			</group>
+
+			<group name="FJP">
+				<usesignal signal="FJP.P01.STOP" />
+				<usesignal signal="FJP.P5.START" />
+				<usesignal signal="FJP.ERROR" />
+				<usesignal signal="FJP.ENABLE_WASH" />
+				<usesignal signal="FJP.P5_IS_RUNNING" />
+			</group>
+
+			<group name="P1">
+				<usesignal signal="PP1.START_STOP" />
+				<usesignal signal="PP1.FREQUENCY" />
+				<usesignal signal="PP1.ACTUAL_VALUE" />
+			</group>
+			<group name="P2">
+				<usesignal signal="PP2.START_STOP" />
+				<usesignal signal="PP2.FREQUENCY" />
+				<usesignal signal="PP2.ACTUAL_VALUE" />
+			</group>
+			<group name="P3">
+				<usesignal signal="PP3.START_STOP" />
+				<usesignal signal="PP3.FREQUENCY" />
+				<usesignal signal="PP3.ACTUAL_VALUE" />
+			</group>
+			<group name="P4">
+				<usesignal signal="PP4.START_STOP" />
+				<usesignal signal="PP4.FREQUENCY" />
+				<usesignal signal="PP4.ACTUAL_VALUE" />
+			</group>
+			<group name="P5">
+				<usesignal signal="P5.START_STOP" />
+				<usesignal signal="P5.AUTO_CONTROL" />
+				<usesignal signal="P5.IS_RUNNING" />
+				<usesignal signal="P5.ERROR" />
+				<usesignal signal="P5.THERMO" />
+			</group>
+		</scheme>
+	</schemes>
+	<program>
+	    Var Level_Limit_Min;
+	    Var Level_Limit_Max;
+	    Var Not_First_Round;
+	    Var FQI1_So_Far;
+
+		# 1. MV11 loogika.
+    	If MV11.AUTO_CONTROL Then
+	    	# Kas reservid on tühjad? Avada kraanid...
+	    	If LIA2.1 &lt; Level_Limit_Min Then
+	    		MV11.CLOSE :=0;
+	    		MV11.OPEN := 1;
+	    	End;
+			If MV11.IS_OPEN And (Not MV11.IS_CLOSED) Then
+				MV11.OPEN := 0;
+			End;
+			# Kas on üle ääre minemas või on vaja pesta?
+			# Hakata kraane sulgema, kui see on nii.
+			If (LIA2.1 > Level_Limit_Max) Or LSA2.1 Or FJP.P01.STOP Then
+				MV11.OPEN := 0;
+				MV11.CLOSE := 1;
+			End;			
+			If MV11.IS_CLOSED And (Not MV11.IS_OPEN) Then
+				MV11.CLOSE := 0;
+			End;
+	    Else
+	    	MV11.OPEN := 0;
+	    	MV11.CLOSE := 0;
+	    End;
+	    
+	    # 2. MV21 loogika.
+	    If MV21.AUTO_CONTROL Then
+	    	# Kas reservid on tühjad? Avada kraanid...
+	    	If LIA2.2 &lt; Level_Limit_Min Then
+	    	    MV21.CLOSE := 0;
+	    	    MV21.OPEN := 1;
+	    	End;
+			If MV21.IS_OPEN And (Not MV21.IS_CLOSED) Then
+				MV21.OPEN := 0;
+			End;
+
+			# Kas on üle ääre minemas või on tarvis pesta?
+			# Hakata kraane sulgema, kui see on nii.
+			If (LIA2.2 > Level_Limit_Max) Or LSA2.2 Or FJP.P01.STOP Then
+				MV21.OPEN := 0;
+				MV21.CLOSE := 1;
+			End;
+			If MV21.IS_CLOSED And (Not MV21.IS_OPEN) Then
+				MV21.CLOSE := 0;
+			End;
+    	Else
+    		MV21.OPEN := 0;
+    		MV21.CLOSE := 0;
+    	End;
+
+		# Pesu on lubatud vaid siis, kui:
+		# 1. Pump on automaatjuhtimisel.
+		# 2. reservuaaride tase on üle miinimumi -- seda ei saa teha, sest praktiliselt iga pesu korral langeb alla miinimumi.
+		FJP.ENABLE_WASH := (P01.AUTO_CONTROL);
+		
+	    # 3. Kas pestakse?
+	    If FJP.P01.STOP Then
+	 		# PESUREZHIIM
+	 		# Mootor seisma.
+	 		P01.START_STOP := 0;
+	 		DY1 := 0;
+	 		
+    	    # Käivitame P5 vaid siis kui
+    	    # puurkaevupump seisab
+    	    # ja klapid MV1 ja MV2 on kinni.
+    	    P5.START_STOP := FJP.P5.START And (Not P01.IS_RUNNING) And MV11.IS_CLOSED And (Not MV11.IS_OPEN) And MV21.IS_CLOSED And (Not MV21.IS_OPEN);
+	    Else
+	    	# TAVALINE TÖÖPÄEV
+	    	
+	    	# 0. Ei mingit pesu.
+	    	P5.START_STOP := 0;
+	    	
+	    	If P01.PLC_CONTROL Then
+	    		If P01.AUTO_CONTROL Then
+					# 2. Kas saame pumbata?
+			    	If (MV11.IS_OPEN And (Not MV11.IS_CLOSED)) Or (MV21.IS_OPEN And (Not MV21.IS_CLOSED)) Then
+			    		P01.START_STOP := 1;
+			    	End;
+			
+					# 3. Kas saame pumba kinni keerata?
+					If (MV11.IS_CLOSED Or MV11.CLOSE) And (MV21.IS_CLOSED Or MV21.CLOSE) Then
+			    		P01.START_STOP := 0;
+					End;
+				End;
+			Else
+				P01.START_STOP := 0;
+			End;
+
+			# Aeratsiooniklapp vastavalt pumbale.
+			DY1 := P01.START_STOP;
+
+	    	# Saadame filtrisse edasi FQI1 impulsid.
+	    	# FJP.LQI2 := BITS.FQI1;
+	    	If Not_First_Round Then
+	    		If FQI1 > FQI1_So_Far Then
+	    			FQI1_So_Far := FQI1;
+	    			FJP.LQI1 := 1;
+	    		Else
+	    			FJP.LQI1 := 0;
+	    		End;
+	    	Else
+	    		Not_First_Round := 1;
+	    		FQI1_So_Far := FQI1;
+	    	End;
+	    End;
+
+		# 4. II astme pumbapaterei juhtimine
+		# Kas väljundis on normaalne rõhk ja ühes või teises reservuaaris on piisavalt vett?
+		If PS.3 And ((LIA2.1 > Level_Limit_Min) Or (LIA2.2 > Level_Limit_Min)) Then
+			PP1.START_STOP := 1;
+			PP2.START_STOP := 1;
+			PP3.START_STOP := 1;
+			PP4.START_STOP := 1;
+		Else
+			PP1.START_STOP := 0;
+			PP2.START_STOP := 0;
+			PP3.START_STOP := 0;
+			PP4.START_STOP := 0;
+		End;
+		# FJP tahab nagunii teada, mis v2rk on.
+    	FJP.P5_IS_RUNNING := P5.IS_RUNNING;
+	</program>
+</plcmaster>

@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="ControlPanel.VisualizationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlPanel"
+             xmlns:hb="clr-namespace:HandyBox;assembly=HandyBox"
+             xmlns:utils="clr-namespace:CSUtils;assembly=CSUtils"
+             xmlns:win="clr-namespace:System.Windows;assembly=PresentationCore"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <utils:SelectOneOfTwo x:Key="InvertedVisibilityOf" ValueWhenTrue="{x:Static Member=win:Visibility.Collapsed}" ValueWhenFalse="{x:Static Member=win:Visibility.Visible}" />
+        <utils:SelectOneOfTwo x:Key="VisibilityOf" ValueWhenTrue="{x:Static Member=win:Visibility.Visible}" ValueWhenFalse="{x:Static Member=win:Visibility.Collapsed}" />
+    </UserControl.Resources>
+    <Grid>
+        <TabControl TabStripPlacement="Left" Name="tabcontrolMain">
+            <TabItem Header="Tööpõld">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Main Stuff -->
+                    <Grid Grid.Row="0" DockPanel.Dock="Top">
+                        <Viewbox Stretch="Uniform">
+                            <Canvas Name="mainCanvas" Width="1150" Height="700">
+                                <Image Name="imageSCADA" Width="1150" Height="700" >
+                                    <Image.Source>
+                                        <DrawingImage x:Name="drawingimageScada">
+                                        </DrawingImage>
+                                    </Image.Source>
+                                </Image>
+                            </Canvas>
+                        </Viewbox>
+                        <TextBlock Text="Side puudub!" FontSize="36" Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Path=MainWindow.IsConnected, Converter={StaticResource InvertedVisibilityOf}}" />
+                    </Grid>
+
+                    <!-- Time from the last update.-->
+                    <Border Grid.Row="0" Grid.Column="0" Name="borderDisconnected" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Transparent" BorderThickness="2.0" CornerRadius="2" >
+                        <DockPanel>
+                            <local:MuteButton DockPanel.Dock="Bottom" x:Name="buttonMute" Height="40" Width="40" HorizontalAlignment="Left" Margin="5" />
+                            <TextBlock DockPanel.Dock="Left" Name="textblockLastUpdatedLabel" Text="Viimati uuendatud:" FontSize="13" Margin="5" />
+                            <TextBlock DockPanel.Dock="Left" Name="textblockLastUpdated" Text="Ei" FontSize="13" MinWidth="40" Margin="5" />
+                        </DockPanel>
+                    </Border>
+
+                    <!-- Details group. -->
+                    <TabControl Grid.Row="1" Name="tabGroupDetails" TabStripPlacement="Bottom"  SelectionChanged="TabControl_InfoPanel_SelectionChanged" MinHeight="100" VerticalAlignment="Stretch">
+                    </TabControl>
+                </Grid>
+            </TabItem>
+
+            <!-- CHARTS -->
+            <TabItem Header="Graafikud" HorizontalAlignment="Stretch">
+                <Grid>
+                    <local:ChartsPanelControl x:Name="chartspanel" DataContext="{Binding}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Signaalid" Visibility="{Binding Path=LocalConfiguration.IsDebug, Converter={StaticResource VisibilityOf}}" >
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Foreground="Blue" Text="Vaata ja muuda signaale ja muutujaid" />
+                    <ListView DockPanel.Dock="Top" ItemsSource="{Binding Path=Signals}" >
+                        <ListView.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Control.MinWidth" Value="25" />
+                                <Setter Property="Control.Margin" Value="5,5,0,0" />
+                                <Setter Property="Control.Focusable" Value="False" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DisplayIsConnected}" Value="false">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=DisplayId}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Nimi">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=Name}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!--
+                                    <GridViewColumn Header="Type">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Path=Type}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    -->
+                                <GridViewColumn Header="Seade/Viik">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=DisplayDevicePin}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Kirjeldus">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=Description}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Lugem">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=DisplayReading}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Väärtus">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=DisplayValue}" Padding="5" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Tegevused">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Content="Aktiveeri" IsEnabled="{Binding Path=CanWrite}" Click="Button_SetTo1_Click" Tag="{Binding}" />
+                                                <Button Content="Nulli" IsEnabled="{Binding Path=CanWrite}" Click="Button_SetTo0_Click" Tag="{Binding}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="Ajalugu" HorizontalAlignment="Stretch">
+                <DockPanel>
+                    <!-- HISTORY EXPORT -->
+                    <local:HistoryControl HorizontalAlignment="Stretch" DockPanel.Dock="Top" x:Name="historycontrol" DataContext="{Binding}" />
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Trüki" FontSize="18" Padding="5" Margin="5" 
+                    Click="ButtonPrint_Click"
+                    />
+    </Grid>
+</UserControl>

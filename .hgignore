@@ -1,0 +1,16 @@
+syntax: glob
+
+.metadata
+.project
+*/Debug
+*.suo
+*/bin
+*/obj
+packages
+.nuget
+
+
+syntax: regexp
+
+Backup[0-9]*/
+UpgradeLog[0-9]*.htm

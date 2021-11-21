@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" UpgradeCode="{DE84D811-4957-439d-9B25-546DFF188861}" Version="1.0.0" Language="1033" Name="Loksa Juhtpaneel" Manufacturer="Exe-Project">
+    <Package Id="*" InstallerVersion="100" Compressed="yes"/>
+    <Media Id="1" Cabinet="controlpanel.cab" EmbedCab="yes" />
+
+    <!-- Step 1: Define the directory structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+
+      <Directory Id="ProgramFilesFolder" Name="PFiles" >
+        <Directory Id="ExeProject" Name="ExeProject" >
+          <Directory Id="INSTALLDIR" Name="Loksa Juhtpaneel 1.0" >
+
+            <Component Id="MainExecutable" Guid="{A79BFCA8-B48C-43f3-ABC9-E9F3051B7AD3}">
+              <File Id="ControlPanel.exe" Source="ControlPanel\bin\Release\ControlPanel.exe" KeyPath="yes" Checksum="yes"/>
+              <Shortcut Id="startmenuControlPanel" Directory="ProgramMenuDir" Name="Loksa Juhtpaneel 1.0" WorkingDirectory="INSTALLDIR" Icon="ControlPanel.exe" IconIndex="0" Advertise="yes" />
+              <Shortcut Id="desktopControlPanel" Directory="DesktopFolder" Name="Loksa Juhtpaneel 1.0" WorkingDirectory="INSTALLDIR" Icon="ControlPanel.exe" IconIndex="0" Advertise="yes"/>
+            </Component>
+
+            <Component Id="Google.ProtocolBuffersLite.dll" Guid="{A789F34A-89A7-42f3-96C7-568F27EC076B}">
+              <File Id="Google.ProtocolBuffersLite.dll" Source="ControlPanel\bin\Release\Google.ProtocolBuffersLite.dll" KeyPath="yes" Checksum="yes"/>
+            </Component>
+
+	    <Component Id="CSUtils.dll" Guid="{8D52204D-5A67-4D15-A683-7BEB0238A372}">
+              <File Id="CSUtils.dll" Source="ControlPanel\bin\Release\CSUtils.dll" KeyPath="yes" Checksum="yes" />
+	    </Component>
+
+            <Component Id="FSharp.Core.dll" Guid="{5DEC3DE1-0D72-4594-9197-4F1BE65CA66A}">
+              <File Id="FSharp.Core.dll" Source="..\YY\YY\bin\Release\FSharp.Core.dll" KeyPath="yes" Checksum="yes"/>
+            </Component>
+
+	    <Component Id="HandyBox.dll" Guid="{82C53AEE-97B9-4262-A7AA-95D7A460A8CB}">
+              <File Id="HandyBox.dll" Source="ControlPanel\bin\Release\HandyBox.dll" KeyPath="yes" Checksum="yes" />
+	    </Component>
+
+	    <Component Id="PlcCommunication.dll" Guid="{1FC6322D-9346-4A28-A15C-1AA361CD6C98}">
+              <File Id="PlcCommunication.dll" Source="ControlPanel\bin\Release\PlcCommunication.dll" KeyPath="yes" Checksum="yes" />
+	    </Component>
+
+            <Component Id="WPFToolkit.Extended.dll" Guid="{4D220931-F57B-44ad-984B-6F3344FD9213}">
+              <File Id="WPFToolkit.Extended.dll" Source="ControlPanel\bin\Release\WPFToolkit.Extended.dll" KeyPath="yes" Checksum="yes"/>
+            </Component>
+
+            <Component Id="Xceed.Wpf.DataGrid.dll" Guid="{9D048350-A9BB-4426-A64C-E525449A2826}">
+              <File Id="Xceed.Wpf.DataGrid.dll" Source="ControlPanel\bin\Release\Xceed.Wpf.DataGrid.dll" KeyPath="yes" Checksum="yes"/>
+            </Component>
+
+            <Component Id="YY.dll" Guid="{561DF3A9-FA82-4fb0-8457-48CCD4184BAB}">
+              <File Id="YY.dll" Source="ControlPanel\bin\Release\YY.dll" KeyPath="yes" Checksum="yes"/>
+            </Component>
+
+            <Component Id="Juhtpaneel_Kasutusjuhend.pdf" Guid="{9998BBF0-AD4A-4c6d-BBB9-08ED2110CCCF}">
+              <File Id="Juhtpaneel_Kasutusjuhend.pdf" Source="doc\Juhtpaneel_Kasutusjuhend.pdf" KeyPath="yes" Checksum="yes"/>
+              <Shortcut Id="startmenuPDF" Directory="ProgramMenuDir" Name="Loksa Juhtpaneeli Kasutusjuhend" WorkingDirectory="INSTALLDIR" Advertise="yes" />
+              <Shortcut Id="desktopPDF" Directory="DesktopFolder" Name="Loksa Juhtpaneeli Kasutusjuhend" WorkingDirectory="INSTALLDIR" Advertise="yes"/>
+            </Component>
+
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="Loksa Juhtpaneel 1.0">
+          <Component Id="ProgramMenuDir" Guid="{5B790951-904A-4559-A958-53B8FD4D962E}">
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop">
+      </Directory>
+    </Directory>
+
+
+    <Feature Id="Complete" Level="1"
+            Title="Loksa Juhtpaneel 1.0" Description="Loksa Juhtpaneel - kogu komplekt." Display="expand"
+            ConfigurableDirectory="INSTALLDIR" >
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="CSUtils.dll" />
+      <ComponentRef Id="FSharp.Core.dll" />
+      <ComponentRef Id="Google.ProtocolBuffersLite.dll" />
+      <ComponentRef Id="HandyBox.dll" />
+      <ComponentRef Id="PlcCommunication.dll" />
+      <ComponentRef Id="WPFToolkit.Extended.dll" />
+      <ComponentRef Id="Xceed.Wpf.DataGrid.dll" />
+      <ComponentRef Id="YY.dll" />
+      <ComponentRef Id="Juhtpaneel_Kasutusjuhend.pdf" />
+      <ComponentRef Id="ProgramMenuDir" />
+      <ComponentGroupRef Id="LoksaSetup" />
+    </Feature>
+
+    <WixVariable Id="WixUILicenseRtf" Value="ControlPanel\controlpanel_licence.rtf" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <Icon Id="ControlPanel.exe" SourceFile="ControlPanel\bin\Release\ControlPanel.exe" />
+  </Product>
+</Wix>
+

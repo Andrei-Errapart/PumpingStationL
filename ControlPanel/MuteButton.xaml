@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="ControlPanel.MuteButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utils="clr-namespace:CSUtils;assembly=CSUtils"
+             mc:Ignorable="d" Name="Window"
+             d:DesignHeight="300" d:DesignWidth="300" MinWidth="32" MinHeight="32">
+    <Button Click="ButtonMute_Click">
+        <Image>
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <DrawingGroup>
+                            <!-- MUTE ON -->
+                            <DrawingGroup x:Name="DrawingLayerMuteOn">
+                                <DrawingGroup.ClipGeometry>
+                                    <RectangleGeometry Rect="0,0,52,52" />
+                                </DrawingGroup.ClipGeometry>
+                                <DrawingGroup Transform="1,0,0,1,0,4">
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="2.3571,18.2857,6.7143,11" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M9.0470786,29.231713L23.605903,40.734825 23.542768,6.7684446 9.0470786,18.334692" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" DashCap="Flat" LineJoin="Miter">
+                                                <Pen.DashStyle>
+                                                    <DashStyle Offset="0" Dashes="4 4" />
+                                                </Pen.DashStyle>
+                                            </Pen>
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M29.290219,38.621426C38.230069,30.03513,38.179561,17.155685,29.340729,8.7714184" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" DashCap="Flat" LineJoin="Miter">
+                                                <Pen.DashStyle>
+                                                    <DashStyle Offset="0" Dashes="4 4" />
+                                                </Pen.DashStyle>
+                                            </Pen>
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M35.451907,42.965082C46.008001,32.307973,46.260539,14.377765,33.633633,2.761011" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" DashCap="Flat" LineJoin="Miter">
+                                                <Pen.DashStyle>
+                                                    <DashStyle Offset="0" Dashes="4 4" />
+                                                </Pen.DashStyle>
+                                            </Pen>
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M41.454437,47.207723C54.384389,33.368633,54.081343,9.6805555,37.817888,-3.0978739" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Transform="1,0,0,1,0,-4" Figures="M0.50837054,0.50837051L51.490513,51.491071" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Transform="1,0,0,1,0,-4" Figures="M0.50948661,51.493304L51.49163,0.5066964" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                            </DrawingGroup>
+
+                            <!-- MUTE OFF -->
+                            <DrawingGroup x:Name="DrawingLayerMuteOff">
+                                <DrawingGroup.ClipGeometry>
+                                    <RectangleGeometry Rect="0,0,52,52" />
+                                </DrawingGroup.ClipGeometry>
+                                <DrawingGroup Transform="1,0,0,1,0,4">
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="2.3571,18.2857,6.7143,11" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M9.0470786,29.231713L23.605903,40.734825 23.542768,6.7684446 9.0470786,18.334692" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M29.290219,38.621426C38.230069,30.03513,38.179561,17.155685,29.340729,8.7714184" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M35.451907,42.965082C46.008001,32.307973,46.260539,14.377765,33.633633,2.761011" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                    <GeometryDrawing >
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="#FF000000" Thickness="1" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <PathGeometry FillRule="Nonzero" Figures="M41.454437,47.207723C54.384389,33.368633,54.081343,9.6805555,37.817888,-3.0978739" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                            </DrawingGroup>
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+        </Image>
+    </Button>
+</UserControl>

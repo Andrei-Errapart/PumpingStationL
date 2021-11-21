@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="WindowsPlc/bin/WindowsPlc.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/WindowsPlc/WindowsPlc.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=WindowsPlc/src&lt;com.errapartengineering.windowsplc{WindowsPlc.java[WindowsPlc" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=WindowsAndroid"/>
+        <javaElement handleIdentifier="=JSON"/>
+        <javaElement handleIdentifier="=WindowsPlc/src"/>
+        <javaElement handleIdentifier="=PlcEngine"/>
+    </selectedElements>
+</jardesc>

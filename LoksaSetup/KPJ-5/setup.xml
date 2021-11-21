@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plcmaster title="KPJ-Männi">
+	<signals>
+		<devices>
+		<!-- U1 -->
+		<device address="1">
+
+			<!-- U1: inputs -->
+			<signal id="1" type="input" ioindex="0" name="P1.ALARM"				description="P1 häires" text0="Ei" text1="Häires" />
+			<signal id="2" type="input" ioindex="1" name="P1.AUTO"				description="P1 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="3" type="input" ioindex="2" name="P1.IS_RUNNING"		description="P1 töötab" text0="Ei" text1="Töötab" />
+			<signal id="4" type="input" ioindex="3" name="P2.ALARM"		description="P2 häires" text0="Ei" text1="Häires" />
+			<signal id="5" type="input" ioindex="4" name="P2.AUTO"	description="P2 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="6" type="input" ioindex="5" name="P2.IS_RUNNING" 	description="P2 töötab" text0="Ei" text1="Töötab" />
+			<signal id="7" type="input" ioindex="6" name="LSA1" 	description="Veetase madal" text0="Ei" text1="Madal" />
+			<signal id="8" type="input" ioindex="7" name="LSA2"	description="Veetase kõrge" text0="Ei" text1="Kõrge" />
+			<signal id="9" type="input" ioindex="10" name="ISA1" description="Kilp avatud" text0="Avatud" text1="Ei" />
+			<signal id="10" type="input" ioindex="11" name="ISA2"		description="Kaev avatud" text0="Avatud" text1="Ei" />
+
+			<!-- U1: Outputs -->
+			<signal id="11" type="output" ioindex="0" name="P1.START_STOP"		description="P1 käsk" text0="Stop" text1="Start" />
+				<signal id="12" type="output" ioindex="1" name="P2.START_STOP"		description="P2 käsk" text0="Stop" text1="Start" />
+
+			<!-- U1: Analog Inputs -->
+			<signal id="13" type="input_register" ioindex="0" name="LIA1"	description="Nivoo kaevus" text0="0" text1="1" skipwritecheck="true" />
+		</device>
+		</devices>
+		<computedsignals>
+			<computedsignal name="LIA1.READING" type="analogsensor" sources="LIA1" params="0;32767;-1.25;48.8" formatstring="0.00" unit="m" description="Vee nivoo" />
+		</computedsignals>
+		<variables>
+			<variable type="output" name="RUNFIRST" skipwritecheck="true" description="Pumba valik" text0="P2" text1="P1" />
+			<variable type="output" name="ALARM.WATER_LOW" description="Veetaseme alumine piir" text0="OK" text1="Madal!" />
+			<variable type="output" name="ALARM.WATER_HIGH" description="Veetaseme ülemine piir" text0="OK" text1="Kõrge" />
+		</variables>
+	</signals>
+	<schemes>
+   		<scheme type="infopanel">
+			<group name="P1">
+				<usesignal signal="P1.AUTO" />
+				<usesignal signal="P1.START_STOP" />
+				<usesignal signal="P1.IS_RUNNING" />
+				<usesignal signal="P1.ALARM" />
+			</group>
+
+			<group name="P2">
+				<usesignal signal="P2.AUTO" />
+				<usesignal signal="P2.START_STOP" />
+				<usesignal signal="P2.IS_RUNNING" />
+				<usesignal signal="P2.ALARM" />
+			</group>
+
+			<group name="TJK">
+				<usesignal signal="LSA1" />
+				<usesignal signal="LSA2" />
+				<usesignal signal="ISA1" />
+				<usesignal signal="ISA2" />
+				<usesignal signal="LIA1.READING" />
+			</group>
+		</scheme>
+		<scheme type="charts">
+			<group name="Vaikimisi">
+				<usesignal signal="LIA1.READING" />
+				<usesignal signal="P1.ALARM" />
+				<usesignal signal="P1.AUTO" />
+				<usesignal signal="P1.IS_RUNNING" />
+				<usesignal signal="P2.ALARM" />
+				<usesignal signal="P2.AUTO" />
+				<usesignal signal="P2.IS_RUNNING" />
+				<usesignal signal="LSA1" />
+				<usesignal signal="LSA2" />
+				<usesignal signal="ISA1" />
+				<usesignal signal="ISA2" />
+			</group>			
+		</scheme>		
+	</schemes>
+</plcmaster>

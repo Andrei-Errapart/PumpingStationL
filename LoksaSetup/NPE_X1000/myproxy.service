@@ -1,0 +1,13 @@
+[Unit]
+Description=Modbus Proxy for the NPE-X1000 system.
+Requires=mdev.service
+After=mdev.service
+
+[Service]
+Type=simple
+ExecStart=/mnt/mmcblk0p1/data/NPE_X1000/run-mbproxy.sh
+ExecStop=killall mbproxy
+
+[Install]
+WantedBy=multi-user.target
+

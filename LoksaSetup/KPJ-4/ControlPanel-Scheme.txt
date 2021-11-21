@@ -1,0 +1,38 @@
+
+#################################################################
+# P1
+Show P1.Contents When P1.IS_RUNNING;
+Show P1.AUTO When P1.AUTO;
+Blink P1.ALARM When P1.ALARM;
+
+#################################################################
+Show P2.Contents When P2.IS_RUNNING;
+Show P2.AUTO When P2.AUTO;
+Blink P2.ALARM When P2.ALARM;
+
+#################################################################
+# LIA1
+Display LIA1 As LIA1.READING;
+Blink LIA1.LOW When ALARM.WATER_LOW;
+Blink LIA1.HIGH When ALARM.WATER_HIGH;
+
+#################################################################
+# LSA1
+Blink LSA1.DRY When LSA1;
+Show LSA1.WET When Not LSA1;
+
+#################################################################
+# LSA2
+Blink LSA2.WET When LSA2;
+Show LSA2.DRY When Not LSA2;
+
+#################################################################
+# ISA1
+Blink ISA1 When Not ISA1;
+
+#################################################################
+# ISA2 is not connected!
+#Blink ISA2 When Not ISA2;
+#Show ISA2.OK When ISA2;
+Show ISA2 When 0;
+

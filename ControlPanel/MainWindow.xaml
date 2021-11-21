@@ -1,0 +1,81 @@
+﻿<Window x:Class="ControlPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ControlPanel"
+        xmlns:hb="clr-namespace:HandyBox;assembly=HandyBox"
+        xmlns:utils="clr-namespace:CSUtils;assembly=CSUtils"
+        xmlns:win="clr-namespace:System.Windows;assembly=PresentationCore"
+        Title="Pumpla Juhtpaneel"
+        Height="650" Width="725"
+        Name="Window"
+        Loaded="Window_Loaded" Closing="Window_Closing" MouseMove="Window_MouseMove" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+    <Window.Resources>
+        <utils:SelectOneOfTwo x:Key="InvertedVisibilityOf" ValueWhenTrue="{x:Static Member=win:Visibility.Collapsed}" ValueWhenFalse="{x:Static Member=win:Visibility.Visible}" />
+        <utils:SelectOneOfTwo x:Key="VisibilityOf" ValueWhenTrue="{x:Static Member=win:Visibility.Visible}" ValueWhenFalse="{x:Static Member=win:Visibility.Collapsed}" />
+    </Window.Resources>
+    <TabControl FontSize="18" Name="tabcontrolMain">
+        <TabItem Header="Süsteemne log" Visibility="{Binding Path=LocalConfiguration.IsDebug, Converter={StaticResource VisibilityOf}}" >
+            <hb:TextboxLogControl Name="textboxLog" />
+        </TabItem>
+        
+        <!-- CONFIGURATION -->
+        <TabItem Header="Seadistused">
+            <TabItem.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Control.Padding" Value="5" />
+                    <Setter Property="Control.Margin" Value="5" />
+                    <Setter Property="Control.MinWidth" Value="100" />
+                    <Setter Property="Control.Focusable" Value="False" />
+                </Style>
+            </TabItem.Resources>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" Foreground="Blue" Text="Muuda programmi seadistusi" />
+
+                <!-- Setup parameters -->
+                <Grid DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"  />
+                        <ColumnDefinition Width="Auto"  />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- SERVER CONNECTION -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Side serveriga:" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=Window, Path=CopyOfConfiguration.ServerConnection}" MinWidth="200" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Kasutajanimi serveris:" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=Window, Path=CopyOfConfiguration.ServerUsername}" MinWidth="200" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Parool serveris:" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=Window, Path=CopyOfConfiguration.ServerPassword}" MinWidth="200" />
+
+                    <!-- not used anymore.
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Valitud PLC:" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=Window, Path=CopyOfConfiguration.SelectedPlc}" MinWidth="200" />
+                    -->
+
+                    <!-- SHALL WE PLAY BEEP? -->
+                    <CheckBox Grid.Row="4" Grid.Column="0" Content="Helialarm" IsChecked="{Binding ElementName=Window, Path=CopyOfConfiguration.IsAudibleAlarmEnabled}" />
+
+                    <!-- DISPLAY CHANGE FREQUENCY -->
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Jaama vahetuse aeg, sek.:" />
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=Window, Path=CopyOfConfiguration.DisplayChangePeriod}" MinWidth="200" />
+                </Grid>
+
+                <!-- Action buttons -->
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Top" >
+                    <Button Content="Katseta" Click="Button_Test_Configuration" />
+                    <Button Content="Rakenda" Click="Button_Apply_Configuration" />
+                </StackPanel>
+            </DockPanel>
+        </TabItem>
+
+    </TabControl>
+</Window>

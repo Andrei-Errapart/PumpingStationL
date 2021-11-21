@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plcmaster>
+	<signals>
+		<!-- U1 -->
+		<device address="1">
+
+			<!-- U1: inputs -->
+			<signal id="1" type="input" ioindex="0" name="P1.ALARM"				description="Pump P1 häires" text0="Ei" text1="Häires" />
+			<signal id="2" type="input" ioindex="1" name="P1.AUTO"				description="Pump P1 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="3" type="input" ioindex="2" name="P1.IS_RUNNING"		description="Pump P1 töötab" text0="Seisab" text1="Töötab" />
+			<signal id="4" type="input" ioindex="3" name="P2.ALARM"		description="Pump P2 häires" text0="Ei" text1="Häires" />
+			<signal id="5" type="input" ioindex="4" name="P2.AUTO"	description="Pump P2 automaatjuhtimisel" text0="Ei" text1="Automaatjuhtimisel" />
+			<signal id="6" type="input" ioindex="5" name="P2.IS_RUNNING" 	description="Pump P2 töötab" text0="Seisab" text1="Töötab" />
+			<signal id="7" type="input" ioindex="6" name="LSA1" 	description="Veetase madal" text0="Ei" text1="Madal" />
+			<signal id="8" type="input" ioindex="7" name="LSA2"	description="Veetase kõrge" text0="Ei" text1="Kõrge" />
+			<signal id="9" type="input" ioindex="8" name="ISA1" description="Kilp avatud" text0="Ei" text1="Avatud" />
+			<signal id="10" type="input" ioindex="9" name="ISA2"		description="Kaev avatud" text0="Ei" text1="Avatud" />
+			<signal id="11" type="input" ioindex="10" name="U1.DI10"		description="U1.DI10" text0="0" text1="1" />
+			<signal id="12" type="input" ioindex="11" name="U1.DI11"		description="U1.DI11" text0="0" text1="1" />
+			<signal id="13" type="input" ioindex="12" name="U1.DI12"		description="U1.DI12" text0="0" text1="1" />
+			<signal id="14" type="input" ioindex="13" name="U1.DI13"		description="U1.DI13" text0="0" text1="1" />
+			<signal id="15" type="input" ioindex="14" name="U1.DI14"		description="U1.DI14" text0="0" text1="1" />
+			<signal id="16" type="input" ioindex="15" name="U1.DI15"		description="U1.DI15" text0="0" text1="1" />
+
+			<!-- U1: Outputs -->
+			<signal id="17" type="output" ioindex="0" name="P1.START_STOP"		description="Puurkaevupump P1 start/stop" text0="Stop" text1="Start" />
+			<signal id="18" type="output" ioindex="1" name="P2.START_STOP"		description="Puurkaevupump P2 start/stop" text0="Stop" text1="Start" />
+			<signal id="19" type="output" ioindex="2" name="U1.DO2"		description="U1.DO2" text0="0" text1="1" />
+			<signal id="20" type="output" ioindex="3" name="U1.DO3"	description="U1.DO3" text0="0" text1="1" />
+			<signal id="21" type="output" ioindex="4" name="U1.DO4"	description="U1.DO4" text0="0" text1="1" />
+			<signal id="22" type="output" ioindex="5" name="U1.DO5" description="U1.DO5" text0="0" text1="1" />
+
+			<!-- U1: Analog Inputs -->
+			<signal id="23" type="input_register" ioindex="0" name="LIA1"	description="Nivoo kaevus" text0="0" text1="1" />
+			<signal id="24" type="input_register" ioindex="1" name="U1.AI1"	description="U1.AI1" text0="0" text1="1" />
+			<signal id="25" type="input_register" ioindex="2" name="U1.AI2"	description="U1.AI2" text0="0" text1="1" />
+			<signal id="26" type="input_register" ioindex="3" name="U1.AI3"	description="U1.AI3" text0="0" text1="1" />
+		</device>
+		
+	</signals>
+	<schemes>
+   		<scheme type="infopanel">
+			<group name="P1">
+				<usesignal signal="P1.AUTO" />
+				<usesignal signal="P1.START_STOP" />
+				<usesignal signal="P1.IS_RUNNING" />
+				<usesignal signal="P1.ALARM" />
+			</group>
+
+			<group name="P2">
+				<usesignal signal="P1.AUTO" />
+				<usesignal signal="P1.START_STOP" />
+				<usesignal signal="P1.IS_RUNNING" />
+				<usesignal signal="P1.ALARM" />
+			</group>
+
+			<group name="TJK">
+				<usesignal signal="LIA1" />
+				<usesignal signal="LSA1" />
+				<usesignal signal="LSA2" />
+				<usesignal signal="ISA1" />
+				<usesignal signal="ISA2" />
+			</group>
+		</scheme>
+	</schemes>
+	<program>
+	</program>
+</plcmaster>
